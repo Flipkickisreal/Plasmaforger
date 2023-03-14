@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwyoi285vng18"]
+[gd_scene load_steps=5 format=3 uid="uid://bwyoi285vng18"]
 
+[ext_resource type="Theme" uid="uid://br81apg7c5q8b" path="res://resources/themes/main_theme.tres" id="1_8582y"]
 [ext_resource type="Script" path="res://Code/gun_builder/gun_builder.gd" id="1_adwiy"]
 [ext_resource type="Script" path="res://Code/gun_builder/gun_base.gd" id="1_tgp2v"]
 [ext_resource type="PackedScene" uid="uid://kgiqrsmg4jpq" path="res://Code/gun_builder/gun_part.tscn" id="2_b24e8"]
@@ -11,10 +12,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_8582y")
 script = ExtResource("1_adwiy")
-GunPart = ExtResource("2_b24e8")
+GunPartScene = ExtResource("2_b24e8")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBox" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,29 +24,50 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Left" type="PanelContainer" parent="HBoxContainer"]
+[node name="Left" type="PanelContainer" parent="HBox"]
 layout_mode = 2
 
-[node name="VBox" type="VBoxContainer" parent="HBoxContainer/Left"]
+[node name="VBox" type="VBoxContainer" parent="HBox/Left"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/Left/VBox"]
+[node name="Label" type="Label" parent="HBox/Left/VBox"]
 layout_mode = 2
 text = "Part Selector"
 horizontal_alignment = 1
 
-[node name="Scroll" type="ScrollContainer" parent="HBoxContainer/Left/VBox"]
+[node name="Scroll" type="ScrollContainer" parent="HBox/Left/VBox"]
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="Parts" type="VBoxContainer" parent="HBoxContainer/Left/VBox/Scroll"]
+[node name="Parts" type="VBoxContainer" parent="HBox/Left/VBox/Scroll"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="GunBase" type="TextureRect" parent="HBoxContainer"]
+[node name="GunBase" type="TextureRect" parent="HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("1_tgp2v")
+
+[node name="Buttons" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -203.0
+offset_bottom = 30.0
+grow_horizontal = 0
+
+[node name="Settings" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "Settings"
+
+[node name="SaveLoad" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "Save / Load"
+
+[connection signal="pressed" from="Buttons/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Buttons/SaveLoad" to="." method="_on_save_load_pressed"]

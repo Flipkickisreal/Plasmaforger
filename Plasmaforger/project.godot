@@ -15,6 +15,11 @@ run/main_scene="res://gamebox.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Options="*res://Code/autoloads/options.tscn"
+SaveLoad="*res://Code/autoloads/save_load.tscn"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
