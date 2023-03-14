@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://kgiqrsmg4jpq"]
+
+[ext_resource type="Script" path="res://Code/gun_builder/gun_part.gd" id="1_oxqq7"]
+
+[node name="GunPart" type="TextureRect"]
+custom_minimum_size = Vector2(128, 128)
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("1_oxqq7")
