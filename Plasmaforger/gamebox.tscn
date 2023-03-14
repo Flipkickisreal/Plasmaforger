@@ -1212,7 +1212,6 @@ size_flags_horizontal = 3
 [node name="CenterContainer" type="CenterContainer" parent="HBCone/VBCone"]
 custom_minimum_size = Vector2(350, 350)
 layout_mode = 2
-size_flags_vertical = 3
 
 [node name="Planetone" type="AnimatedSprite2D" parent="HBCone/VBCone/CenterContainer"]
 z_index = 1
