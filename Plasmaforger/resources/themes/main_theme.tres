@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://br81apg7c5q8b"]
+
+[ext_resource type="FontFile" uid="uid://pgoligg03nfn" path="res://Fonts/FiraCode-VariableFont_wght.ttf" id="1_cyewr"]
+
+[resource]
+default_font = ExtResource("1_cyewr")
+default_font_size = 16

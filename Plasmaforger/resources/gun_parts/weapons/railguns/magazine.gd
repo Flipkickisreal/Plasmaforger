@@ -1,0 +1,2 @@
+extends Railgun
+class_name RailgunMagazine

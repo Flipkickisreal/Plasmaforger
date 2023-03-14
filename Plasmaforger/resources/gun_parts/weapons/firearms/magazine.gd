@@ -1,0 +1,2 @@
+extends Firearm
+class_name FirearmMagazine
