@@ -1,24 +1,26 @@
-[gd_scene load_steps=191 format=3 uid="uid://chvtk0lm2xf5l"]
+[gd_scene load_steps=193 format=3 uid="uid://clq0whv3j3ncv"]
 
-[ext_resource type="Script" path="res://gamebox.gd" id="1_1ad0a"]
 [ext_resource type="Shader" path="res://Shaders/Backgroundspace.gdshader" id="1_jmxlv"]
+[ext_resource type="Script" path="res://Code/gamebox.gd" id="1_u0s2c"]
+[ext_resource type="Script" path="res://Code/Backgroundspace.gd" id="3_3b85d"]
 [ext_resource type="Texture2D" uid="uid://bpp34u8ekbml" path="res://Sprites/Planets/2505424672.png" id="3_ehlq3"]
-[ext_resource type="Script" path="res://Backgroundspace.gd" id="3_gj3tf"]
-[ext_resource type="Script" path="res://HBCone.gd" id="3_tkbeh"]
 [ext_resource type="Shader" path="res://Shaders/Planet.gdshader" id="3_ynfp4"]
-[ext_resource type="Script" path="res://Planet.gd" id="4_5yy70"]
+[ext_resource type="Script" path="res://Code/HBCone.gd" id="4_k1ghh"]
 [ext_resource type="FontFile" uid="uid://cxywj4ongmny" path="res://Fonts/static/FiraCode-Regular.ttf" id="6_d6t6k"]
 [ext_resource type="Texture2D" uid="uid://cjn6fipp2j3wu" path="res://Sprites/Planets/3824432173 (1).png" id="6_ir5q2"]
+[ext_resource type="Script" path="res://Code/Planet.gd" id="7_1nnuf"]
 [ext_resource type="FontFile" uid="uid://c4jm4g0klh4bu" path="res://Fonts/static/FiraCode-Bold.ttf" id="7_rqmy1"]
 [ext_resource type="FontFile" uid="uid://7qyqxr5j5q5" path="res://Fonts/static/FiraCode-Light.ttf" id="8_ctjb0"]
-[ext_resource type="Script" path="res://Launchdwarf.gd" id="10_gk1us"]
-[ext_resource type="Script" path="res://Launchsmoke.gd" id="10_x7ye3"]
-[ext_resource type="Script" path="res://ParallaxBGelf.gd" id="13_851q1"]
-[ext_resource type="Script" path="res://HBCelf.gd" id="14_33rlm"]
+[ext_resource type="Script" path="res://Code/Launchsmoke.gd" id="11_30vma"]
+[ext_resource type="Script" path="res://Code/Launchdwarf.gd" id="12_6xw1e"]
 [ext_resource type="Texture2D" uid="uid://djhcro1srdyps" path="res://Sprites/pxArt (1).png" id="14_twndl"]
+[ext_resource type="Script" path="res://Code/HBCelf.gd" id="14_wfojb"]
+[ext_resource type="Script" path="res://Code/ParallaxBGelf.gd" id="15_r0u8w"]
 [ext_resource type="Texture2D" uid="uid://33pwo1b4x534" path="res://Sprites/pxArt (2).png" id="16_3xjy7"]
 [ext_resource type="Texture2D" uid="uid://fmni51cctfq7" path="res://Sprites/pxArt (3).png" id="17_1rb5g"]
-[ext_resource type="Script" path="res://ElfGameplay.gd" id="19_qkbx6"]
+[ext_resource type="Script" path="res://Code/ElfGameplay.gd" id="19_e7wg0"]
+[ext_resource type="Theme" uid="uid://dajgdof37ntk0" path="res://Themes/Selectionelf.tres" id="20_wejfi"]
+[ext_resource type="Texture2D" uid="uid://cof77uo3i6n4j" path="res://Sprites/Gearicon.png" id="21_tb385"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8s5gw"]
 shader = ExtResource("1_jmxlv")
@@ -1171,7 +1173,7 @@ events = [SubResource("InputEventKey_rdcpa")]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dboy1"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_gs000"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4nej7"]
 
 [node name="Gamebox" type="Control"]
 layout_mode = 3
@@ -1180,7 +1182,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_1ad0a")
+script = ExtResource("1_u0s2c")
 
 [node name="Backgroundspace" type="TextureRect" parent="."]
 self_modulate = Color(0.0705882, 0.0705882, 0.0666667, 1)
@@ -1193,7 +1195,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_emqu6")
 texture = SubResource("NoiseTexture2D_16n3i")
-script = ExtResource("3_gj3tf")
+script = ExtResource("3_3b85d")
 
 [node name="HBCone" type="HBoxContainer" parent="."]
 visible = false
@@ -1203,7 +1205,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("3_tkbeh")
+script = ExtResource("4_k1ghh")
 
 [node name="VBCone" type="VBoxContainer" parent="HBCone"]
 layout_mode = 2
@@ -1212,6 +1214,7 @@ size_flags_horizontal = 3
 [node name="CenterContainer" type="CenterContainer" parent="HBCone/VBCone"]
 custom_minimum_size = Vector2(350, 350)
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Planetone" type="AnimatedSprite2D" parent="HBCone/VBCone/CenterContainer"]
 z_index = 1
@@ -1220,9 +1223,9 @@ scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_sw2nc")
 animation = &"Orbit"
 autoplay = "Orbit"
-frame_progress = 0.0469134
+frame_progress = 0.298172
 centered = false
-script = ExtResource("4_5yy70")
+script = ExtResource("7_1nnuf")
 
 [node name="Planetbuttonone" type="Button" parent="HBCone/VBCone/CenterContainer"]
 editor_description = "planet button"
@@ -1296,7 +1299,7 @@ speed_scale = 4.0
 explosiveness = 0.04
 randomness = 0.03
 collision_base_size = 0.0
-script = ExtResource("10_x7ye3")
+script = ExtResource("11_30vma")
 
 [node name="Launchdwarf" type="GPUParticles2D" parent="HBCone/VBCtwo/PanelContainer"]
 position = Vector2(191, 231)
@@ -1310,7 +1313,7 @@ speed_scale = 5.0
 explosiveness = 0.04
 randomness = 0.03
 collision_base_size = 0.0
-script = ExtResource("10_gk1us")
+script = ExtResource("12_6xw1e")
 
 [node name="VBCthree" type="VBoxContainer" parent="HBCone"]
 layout_mode = 2
@@ -1327,7 +1330,7 @@ material = SubResource("ShaderMaterial_j6vb1")
 position = Vector2(120, 104)
 sprite_frames = SubResource("SpriteFrames_ivg3n")
 autoplay = "default"
-frame_progress = 0.829867
+frame_progress = 0.0811148
 centered = false
 offset = Vector2(-5, 15)
 
@@ -1366,21 +1369,17 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="HBCelf" type="HBoxContainer" parent="MarginElf"]
-layout_mode = 2
-script = ExtResource("14_33rlm")
+[node name="ParallaxBackgroundElf" type="ParallaxBackground" parent="MarginElf"]
+process_mode = 1
+layer = 0
+script = ExtResource("15_r0u8w")
 
-[node name="ParallaxBackgroundElf" type="ParallaxBackground" parent="MarginElf/HBCelf"]
-layer = 1
-visible = false
-script = ExtResource("13_851q1")
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="MarginElf/HBCelf/ParallaxBackgroundElf"]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="MarginElf/ParallaxBackgroundElf"]
 visibility_layer = 3
 material = SubResource("ShaderMaterial_dboy1")
 motion_mirroring = Vector2(1290, 50)
 
-[node name="Sprite2D" type="Sprite2D" parent="MarginElf/HBCelf/ParallaxBackgroundElf/ParallaxLayer"]
+[node name="Sprite2D" type="Sprite2D" parent="MarginElf/ParallaxBackgroundElf/ParallaxLayer"]
 visibility_layer = 2
 texture_repeat = 2
 position = Vector2(0.522321, -287)
@@ -1389,13 +1388,13 @@ texture = ExtResource("14_twndl")
 centered = false
 offset = Vector2(20, 500)
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="MarginElf/HBCelf/ParallaxBackgroundElf"]
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="MarginElf/ParallaxBackgroundElf"]
 visibility_layer = 4
 motion_scale = Vector2(2.2, 2.2)
 motion_offset = Vector2(3, 40)
 motion_mirroring = Vector2(1500, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="MarginElf/HBCelf/ParallaxBackgroundElf/ParallaxLayer2"]
+[node name="Sprite2D" type="Sprite2D" parent="MarginElf/ParallaxBackgroundElf/ParallaxLayer2"]
 light_mask = 4
 visibility_layer = 5
 texture_repeat = 2
@@ -1403,57 +1402,281 @@ position = Vector2(505, 585)
 scale = Vector2(2.45752, 1.84314)
 texture = ExtResource("16_3xjy7")
 
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="MarginElf/HBCelf/ParallaxBackgroundElf"]
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="MarginElf/ParallaxBackgroundElf"]
 visibility_layer = 8
 motion_scale = Vector2(5.4, 5.4)
 motion_mirroring = Vector2(1200, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="MarginElf/HBCelf/ParallaxBackgroundElf/ParallaxLayer3"]
+[node name="Sprite2D" type="Sprite2D" parent="MarginElf/ParallaxBackgroundElf/ParallaxLayer3"]
 visibility_layer = 8
 position = Vector2(791, 653)
 texture = ExtResource("17_1rb5g")
 
-[node name="Sprite2D2" type="Sprite2D" parent="MarginElf/HBCelf/ParallaxBackgroundElf/ParallaxLayer3"]
+[node name="Sprite2D2" type="Sprite2D" parent="MarginElf/ParallaxBackgroundElf/ParallaxLayer3"]
 visibility_layer = 8
 position = Vector2(234, 661)
 texture = ExtResource("17_1rb5g")
 
-[node name="VBCone_elf" type="VBoxContainer" parent="MarginElf/HBCelf"]
-layout_mode = 2
-size_flags_horizontal = 3
+[node name="CanvasLayer" type="CanvasLayer" parent="MarginElf"]
+layer = 2
 
-[node name="VBCtwo_elf" type="VBoxContainer" parent="MarginElf/HBCelf"]
-visibility_layer = 4
-z_index = 6
-z_as_relative = false
-custom_minimum_size = Vector2(600, 0)
-layout_mode = 2
-size_flags_horizontal = 3
+[node name="PCelf" type="PanelContainer" parent="MarginElf/CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_4nej7")
+script = ExtResource("14_wfojb")
 
-[node name="ElfGameplay" type="GridContainer" parent="MarginElf/HBCelf/VBCtwo_elf"]
+[node name="ElfGameplay" type="GridContainer" parent="MarginElf/CanvasLayer/PCelf"]
+visibility_layer = 513
 custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 6
 size_flags_vertical = 3
 columns = 7
-script = ExtResource("19_qkbx6")
+script = ExtResource("19_e7wg0")
 
-[node name="Topone" type="MenuButton" parent="MarginElf/HBCelf/VBCtwo_elf/ElfGameplay"]
+[node name="Topone" type="MenuButton" parent="MarginElf/CanvasLayer/PCelf/ElfGameplay"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-icon = SubResource("PlaceholderTexture2D_gs000")
+theme = ExtResource("20_wejfi")
+theme_override_fonts/font = ExtResource("6_d6t6k")
+icon = ExtResource("21_tb385")
 icon_alignment = 1
 expand_icon = true
 item_count = 2
-popup/item_0/text = "Barrelone"
+popup/item_0/text = "Rail"
+popup/item_0/checkable = 1
 popup/item_0/id = 0
-popup/item_1/text = "RecivedHeavy"
+popup/item_1/text = "Magnet"
+popup/item_1/checkable = 1
 popup/item_1/id = 1
 
-[node name="VBCthree_elf" type="VBoxContainer" parent="MarginElf/HBCelf"]
+[node name="Topone2" type="MenuButton" parent="MarginElf/CanvasLayer/PCelf/ElfGameplay"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("20_wejfi")
+theme_override_fonts/font = ExtResource("6_d6t6k")
+icon = ExtResource("21_tb385")
+icon_alignment = 1
+expand_icon = true
+item_count = 2
+popup/item_0/text = "Rail"
+popup/item_0/checkable = 1
+popup/item_0/id = 0
+popup/item_1/text = "Magnet"
+popup/item_1/checkable = 1
+popup/item_1/id = 1
+
+[node name="Topone3" type="MenuButton" parent="MarginElf/CanvasLayer/PCelf/ElfGameplay"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("20_wejfi")
+theme_override_fonts/font = ExtResource("6_d6t6k")
+icon = ExtResource("21_tb385")
+icon_alignment = 1
+expand_icon = true
+item_count = 2
+popup/item_0/text = "Rail"
+popup/item_0/checkable = 1
+popup/item_0/id = 0
+popup/item_1/text = "Magnet"
+popup/item_1/checkable = 1
+popup/item_1/id = 1
+
+[node name="Topone4" type="MenuButton" parent="MarginElf/CanvasLayer/PCelf/ElfGameplay"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("20_wejfi")
+theme_override_fonts/font = ExtResource("6_d6t6k")
+icon = ExtResource("21_tb385")
+icon_alignment = 1
+expand_icon = true
+item_count = 2
+popup/item_0/text = "Rail"
+popup/item_0/checkable = 1
+popup/item_0/id = 0
+popup/item_1/text = "Magnet"
+popup/item_1/checkable = 1
+popup/item_1/id = 1
+
+[node name="Topone5" type="MenuButton" parent="MarginElf/CanvasLayer/PCelf/ElfGameplay"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("20_wejfi")
+theme_override_fonts/font = ExtResource("6_d6t6k")
+icon = ExtResource("21_tb385")
+icon_alignment = 1
+expand_icon = true
+item_count = 2
+popup/item_0/text = "Rail"
+popup/item_0/checkable = 1
+popup/item_0/id = 0
+popup/item_1/text = "Magnet"
+popup/item_1/checkable = 1
+popup/item_1/id = 1
+
+[node name="Topone6" type="MenuButton" parent="MarginElf/CanvasLayer/PCelf/ElfGameplay"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("20_wejfi")
+theme_override_fonts/font = ExtResource("6_d6t6k")
+icon = ExtResource("21_tb385")
+icon_alignment = 1
+expand_icon = true
+item_count = 2
+popup/item_0/text = "Rail"
+popup/item_0/checkable = 1
+popup/item_0/id = 0
+popup/item_1/text = "Magnet"
+popup/item_1/checkable = 1
+popup/item_1/id = 1
+
+[node name="Topone7" type="MenuButton" parent="MarginElf/CanvasLayer/PCelf/ElfGameplay"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("20_wejfi")
+theme_override_fonts/font = ExtResource("6_d6t6k")
+icon = ExtResource("21_tb385")
+icon_alignment = 1
+expand_icon = true
+item_count = 2
+popup/item_0/text = "Rail"
+popup/item_0/checkable = 1
+popup/item_0/id = 0
+popup/item_1/text = "Magnet"
+popup/item_1/checkable = 1
+popup/item_1/id = 1
+
+[node name="Topone8" type="MenuButton" parent="MarginElf/CanvasLayer/PCelf/ElfGameplay"]
+visibility_layer = 513
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("20_wejfi")
+theme_override_fonts/font = ExtResource("6_d6t6k")
+icon = ExtResource("21_tb385")
+icon_alignment = 1
+expand_icon = true
+item_count = 2
+popup/item_0/text = "Rail"
+popup/item_0/checkable = 1
+popup/item_0/id = 0
+popup/item_1/text = "Magnet"
+popup/item_1/checkable = 1
+popup/item_1/id = 1
+
+[node name="Topone9" type="MenuButton" parent="MarginElf/CanvasLayer/PCelf/ElfGameplay"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("20_wejfi")
+theme_override_fonts/font = ExtResource("6_d6t6k")
+icon = ExtResource("21_tb385")
+icon_alignment = 1
+expand_icon = true
+item_count = 2
+popup/item_0/text = "Rail"
+popup/item_0/checkable = 1
+popup/item_0/id = 0
+popup/item_1/text = "Magnet"
+popup/item_1/checkable = 1
+popup/item_1/id = 1
+
+[node name="Topone10" type="MenuButton" parent="MarginElf/CanvasLayer/PCelf/ElfGameplay"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("20_wejfi")
+theme_override_fonts/font = ExtResource("6_d6t6k")
+icon = ExtResource("21_tb385")
+icon_alignment = 1
+expand_icon = true
+item_count = 2
+popup/item_0/text = "Rail"
+popup/item_0/checkable = 1
+popup/item_0/id = 0
+popup/item_1/text = "Magnet"
+popup/item_1/checkable = 1
+popup/item_1/id = 1
+
+[node name="Topone11" type="MenuButton" parent="MarginElf/CanvasLayer/PCelf/ElfGameplay"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("20_wejfi")
+theme_override_fonts/font = ExtResource("6_d6t6k")
+icon = ExtResource("21_tb385")
+icon_alignment = 1
+expand_icon = true
+item_count = 2
+popup/item_0/text = "Rail"
+popup/item_0/checkable = 1
+popup/item_0/id = 0
+popup/item_1/text = "Magnet"
+popup/item_1/checkable = 1
+popup/item_1/id = 1
+
+[node name="Topone12" type="MenuButton" parent="MarginElf/CanvasLayer/PCelf/ElfGameplay"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("20_wejfi")
+theme_override_fonts/font = ExtResource("6_d6t6k")
+icon = ExtResource("21_tb385")
+icon_alignment = 1
+expand_icon = true
+item_count = 2
+popup/item_0/text = "Rail"
+popup/item_0/checkable = 1
+popup/item_0/id = 0
+popup/item_1/text = "Magnet"
+popup/item_1/checkable = 1
+popup/item_1/id = 1
+
+[node name="Topone13" type="MenuButton" parent="MarginElf/CanvasLayer/PCelf/ElfGameplay"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("20_wejfi")
+theme_override_fonts/font = ExtResource("6_d6t6k")
+icon = ExtResource("21_tb385")
+icon_alignment = 1
+expand_icon = true
+item_count = 2
+popup/item_0/text = "Rail"
+popup/item_0/checkable = 1
+popup/item_0/id = 0
+popup/item_1/text = "Magnet"
+popup/item_1/checkable = 1
+popup/item_1/id = 1
+
+[node name="Topone14" type="MenuButton" parent="MarginElf/CanvasLayer/PCelf/ElfGameplay"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("20_wejfi")
+theme_override_fonts/font = ExtResource("6_d6t6k")
+icon = ExtResource("21_tb385")
+icon_alignment = 1
+expand_icon = true
+item_count = 2
+popup/item_0/text = "Rail"
+popup/item_0/checkable = 1
+popup/item_0/id = 0
+popup/item_1/text = "Magnet"
+popup/item_1/checkable = 1
+popup/item_1/id = 1
 
 [node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 0
@@ -1462,8 +1685,21 @@ offset_bottom = 40.0
 
 [connection signal="pressed" from="HBCone/VBCone/CenterContainer/Planetbuttonone" to="HBCone" method="_on_planetbuttonone_pressed"]
 [connection signal="pressed" from="HBCone/VBCone/CenterContainer/Planetbuttonone" to="HBCone/VBCtwo/PanelContainer/Launchelf" method="_on_planetbuttonone_pressed"]
-[connection signal="pressed" from="HBCone/VBCone/CenterContainer/Planetbuttonone" to="MarginElf/HBCelf/ParallaxBackgroundElf" method="_on_planetbuttonone_pressed"]
+[connection signal="pressed" from="HBCone/VBCone/CenterContainer/Planetbuttonone" to="MarginElf/ParallaxBackgroundElf" method="_on_planetbuttonone_pressed"]
 [connection signal="pressed" from="HBCone/VBCthree/CenterContainer/Planetbuttontwo" to="HBCone" method="_on_planetbuttontwo_pressed"]
 [connection signal="pressed" from="HBCone/VBCthree/CenterContainer/Planetbuttontwo" to="HBCone/VBCtwo/PanelContainer/Launchdwarf" method="_on_planetbuttontwo_pressed"]
-[connection signal="visibility_changed" from="MarginElf/HBCelf/ParallaxBackgroundElf" to="MarginElf/HBCelf" method="_on_parallax_background_elf_visibility_changed"]
-[connection signal="pressed" from="MarginElf/HBCelf/VBCtwo_elf/ElfGameplay/Topone" to="MarginElf/HBCelf/VBCtwo_elf/ElfGameplay" method="_on_topone_pressed"]
+[connection signal="visibility_changed" from="MarginElf/ParallaxBackgroundElf" to="MarginElf/CanvasLayer/PCelf" method="_on_parallax_background_elf_visibility_changed"]
+[connection signal="pressed" from="MarginElf/CanvasLayer/PCelf/ElfGameplay/Topone" to="MarginElf/CanvasLayer/PCelf/ElfGameplay" method="_on_topone_pressed"]
+[connection signal="pressed" from="MarginElf/CanvasLayer/PCelf/ElfGameplay/Topone2" to="MarginElf/CanvasLayer/PCelf/ElfGameplay" method="_on_topone_pressed"]
+[connection signal="pressed" from="MarginElf/CanvasLayer/PCelf/ElfGameplay/Topone3" to="MarginElf/CanvasLayer/PCelf/ElfGameplay" method="_on_topone_pressed"]
+[connection signal="pressed" from="MarginElf/CanvasLayer/PCelf/ElfGameplay/Topone4" to="MarginElf/CanvasLayer/PCelf/ElfGameplay" method="_on_topone_pressed"]
+[connection signal="pressed" from="MarginElf/CanvasLayer/PCelf/ElfGameplay/Topone5" to="MarginElf/CanvasLayer/PCelf/ElfGameplay" method="_on_topone_pressed"]
+[connection signal="pressed" from="MarginElf/CanvasLayer/PCelf/ElfGameplay/Topone6" to="MarginElf/CanvasLayer/PCelf/ElfGameplay" method="_on_topone_pressed"]
+[connection signal="pressed" from="MarginElf/CanvasLayer/PCelf/ElfGameplay/Topone7" to="MarginElf/CanvasLayer/PCelf/ElfGameplay" method="_on_topone_pressed"]
+[connection signal="pressed" from="MarginElf/CanvasLayer/PCelf/ElfGameplay/Topone8" to="MarginElf/CanvasLayer/PCelf/ElfGameplay" method="_on_topone_pressed"]
+[connection signal="pressed" from="MarginElf/CanvasLayer/PCelf/ElfGameplay/Topone9" to="MarginElf/CanvasLayer/PCelf/ElfGameplay" method="_on_topone_pressed"]
+[connection signal="pressed" from="MarginElf/CanvasLayer/PCelf/ElfGameplay/Topone10" to="MarginElf/CanvasLayer/PCelf/ElfGameplay" method="_on_topone_pressed"]
+[connection signal="pressed" from="MarginElf/CanvasLayer/PCelf/ElfGameplay/Topone11" to="MarginElf/CanvasLayer/PCelf/ElfGameplay" method="_on_topone_pressed"]
+[connection signal="pressed" from="MarginElf/CanvasLayer/PCelf/ElfGameplay/Topone12" to="MarginElf/CanvasLayer/PCelf/ElfGameplay" method="_on_topone_pressed"]
+[connection signal="pressed" from="MarginElf/CanvasLayer/PCelf/ElfGameplay/Topone13" to="MarginElf/CanvasLayer/PCelf/ElfGameplay" method="_on_topone_pressed"]
+[connection signal="pressed" from="MarginElf/CanvasLayer/PCelf/ElfGameplay/Topone14" to="MarginElf/CanvasLayer/PCelf/ElfGameplay" method="_on_topone_pressed"]

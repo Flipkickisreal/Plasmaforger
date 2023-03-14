@@ -13,6 +13,6 @@ func _process(delta: float) -> void:
 func _on_planetbuttonone_pressed() -> void:
 	await get_tree().create_timer(5.0).timeout
 	show()
-	while get_parent().get_parent().get_parent().Plasmaplaying == true:
+	while get_parent().get_parent().Plasmaplaying == true:
 		await get_tree().create_timer(0.3).timeout
 		scroll_offset.x += 2

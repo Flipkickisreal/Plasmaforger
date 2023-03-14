@@ -1,6 +1,8 @@
 extends GridContainer
+@onready var topone = $Topone
+var Gearicon = preload("res://Sprites/Gearicon.png")
 
-var iconselection = preload("res://Sprites/Gearicon.png")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -16,4 +18,4 @@ func partselected(selected:bool) -> void:
 
 
 func _on_topone_pressed() -> void:
-	$topone.icon = iconselection
+	pass
