@@ -14,7 +14,7 @@ func _draw() -> void:
 
 
 func _can_drop_data(_at_position: Vector2, data) -> bool:
-	return data is GunPart
+	return data is GunPartSprite
 	
 
 func _drop_data(at_position: Vector2, data) -> void:

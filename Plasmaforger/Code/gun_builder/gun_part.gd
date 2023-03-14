@@ -1,5 +1,5 @@
 extends TextureRect
-class_name GunPart
+class_name GunPartSprite
 
 
 func _get_drag_data(_at_position: Vector2):
