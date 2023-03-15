@@ -1,15 +1,14 @@
-extends PanelContainer
+extends Label
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	hide()
+	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	pass
 
-
-func _on_parallax_background_elf_visibility_changed() -> void:
-	show()
+func _buy() -> void:
+	pass

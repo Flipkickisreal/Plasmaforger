@@ -1201,7 +1201,6 @@ texture = SubResource("NoiseTexture2D_16n3i")
 script = ExtResource("3_3b85d")
 
 [node name="HBCone" type="HBoxContainer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1232,7 +1231,7 @@ script = ExtResource("7_1nnuf")
 
 [node name="Planetbuttonone" type="Button" parent="HBCone/VBCone/CenterContainer"]
 editor_description = "planet button"
-self_modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0.00392157)
 custom_minimum_size = Vector2(340, 340)
 layout_mode = 2
 action_mode = 0
@@ -1338,7 +1337,7 @@ centered = false
 offset = Vector2(-5, 15)
 
 [node name="Planetbuttontwo" type="Button" parent="HBCone/VBCthree/CenterContainer"]
-self_modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0.00392157)
 custom_minimum_size = Vector2(345, 345)
 layout_mode = 2
 action_mode = 0
@@ -1375,6 +1374,7 @@ theme_override_constants/margin_bottom = 5
 [node name="ParallaxBackgroundElf" type="ParallaxBackground" parent="MarginElf"]
 process_mode = 1
 layer = 0
+visible = false
 script = ExtResource("15_r0u8w")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="MarginElf/ParallaxBackgroundElf"]
@@ -1432,6 +1432,7 @@ texture = ExtResource("17_1rb5g")
 layer = 2
 
 [node name="PCelf" type="PanelContainer" parent="MarginElf/CanvasLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

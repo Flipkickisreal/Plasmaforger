@@ -3,7 +3,7 @@ extends TextureRect
 
 @export var grid_size := Vector2(64, 64)
 @export var grid_line_color := Color.GRAY
-@export var grid_line_width := 1.0
+@export var grid_line_width := 3.0
 
 
 func _draw() -> void:

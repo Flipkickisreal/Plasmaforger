@@ -7,7 +7,7 @@ extends Control
 func _ready() -> void:
 	for i in 3:
 		var g := GunPartScene.instantiate()
-		g.texture = load("res://icon.svg")
+		g.texture = load("res://Sprites/Gearicon.png")
 		%Parts.add_child(g)
 
 

@@ -14,7 +14,11 @@ func _process(delta: float) -> void:
 func _on_planetbuttonone_pressed() -> void:
 	await get_tree().create_timer(5.0).timeout
 	hide()
+	await get_tree().create_timer(60).timeout
+	free()
 
 func _on_planetbuttontwo_pressed() -> void:
 	await get_tree().create_timer(5.0).timeout
-	hide()                
+	hide() 
+	await get_tree().create_timer(60).timeout
+	free()               
