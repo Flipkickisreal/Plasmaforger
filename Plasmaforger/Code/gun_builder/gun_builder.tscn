@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwyoi285vng18"]
+[gd_scene load_steps=6 format=3 uid="uid://bwyoi285vng18"]
 
 [ext_resource type="Theme" uid="uid://br81apg7c5q8b" path="res://resources/themes/main_theme.tres" id="1_8582y"]
 [ext_resource type="Script" path="res://Code/gun_builder/gun_builder.gd" id="1_adwiy"]
 [ext_resource type="Script" path="res://Code/gun_builder/gun_base.gd" id="1_tgp2v"]
 [ext_resource type="PackedScene" uid="uid://kgiqrsmg4jpq" path="res://Code/gun_builder/gun_part.tscn" id="2_b24e8"]
+[ext_resource type="Script" path="res://Code/gun_builder/parts.gd" id="4_sfklx"]
 
 [node name="GunBuilder" type="Control"]
 layout_mode = 3
@@ -46,6 +47,7 @@ custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("4_sfklx")
 
 [node name="GunBase" type="TextureRect" parent="HBox"]
 layout_mode = 2

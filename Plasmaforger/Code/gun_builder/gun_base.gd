@@ -14,12 +14,11 @@ func _draw() -> void:
 
 
 func _can_drop_data(_at_position: Vector2, data) -> bool:
-	return data is GunPartSprite
+	return data is Dictionary and data.has_all(["part", "offset"]) and data.part is GunPartSprite
 	
 
 func _drop_data(at_position: Vector2, data) -> void:
-	if not data.get_parent() == self:
-		data.get_parent().remove_child(data)
-		add_child(data)
-		data.size = Vector2.ZERO
-	data.position = at_position.snapped(grid_size)
+	if not data.part.get_parent() == self:
+		data.part.get_parent().remove_child(data.part)
+		add_child(data.part)
+	data.part.position = (at_position - data.offset).snapped(grid_size)
