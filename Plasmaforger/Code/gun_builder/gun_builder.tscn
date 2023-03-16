@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bwyoi285vng18"]
+[gd_scene load_steps=8 format=3 uid="uid://dvic78eqplbxi"]
 
 [ext_resource type="Theme" uid="uid://br81apg7c5q8b" path="res://resources/themes/main_theme.tres" id="1_8582y"]
 [ext_resource type="Script" path="res://Code/gun_builder/gun_builder.gd" id="1_adwiy"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://kgiqrsmg4jpq" path="res://Code/gun_builder/gun_part.tscn" id="2_b24e8"]
 [ext_resource type="FontFile" uid="uid://cxywj4ongmny" path="res://Fonts/static/FiraCode-Regular.ttf" id="4_0o8ug"]
 [ext_resource type="Script" path="res://Code/gun_builder/parts.gd" id="4_sfklx"]
-[ext_resource type="Script" path="res://Code/gun_builder/Cashmenu.gd" id="6_hqjvv"]
 [ext_resource type="FontFile" uid="uid://c4jm4g0klh4bu" path="res://Fonts/static/FiraCode-Bold.ttf" id="6_xle8k"]
 
 [node name="GunBuilder" type="Control"]
@@ -18,7 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_8582y")
 script = ExtResource("1_adwiy")
-GunPartScene = ExtResource("2_b24e8")
+_GunPartSpriteScene = ExtResource("2_b24e8")
 
 [node name="HBox" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -69,12 +68,12 @@ theme_override_colors/font_color = Color(0.858824, 0.968627, 1, 1)
 theme_override_fonts/font = ExtResource("6_xle8k")
 text = "  $"
 
-[node name="Cashmenu" type="Label" parent="HBox/Left/VBox/HBoxContainer"]
+[node name="CashMenu" type="Label" parent="HBox/Left/VBox/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.858824, 0.968627, 1, 1)
 theme_override_fonts/font = ExtResource("6_xle8k")
-script = ExtResource("6_hqjvv")
 
 [node name="HSeparator" type="HSeparator" parent="HBox/Left/VBox"]
 layout_mode = 2
@@ -108,7 +107,7 @@ theme_override_colors/font_color = Color(0.858824, 0.968627, 1, 1)
 theme_override_fonts/font = ExtResource("4_0o8ug")
 text = "Save / Load"
 
-[connection signal="parts_changed" from="HBox/Left/VBox/Scroll/Parts" to="HBox/Left/VBox/HBoxContainer/Cashmenu" method="_on_parts_parts_changed"]
-[connection signal="basechanged" from="HBox/GunBase" to="HBox/Left/VBox/HBoxContainer/Cashmenu" method="_on_gun_base_basechanged"]
+[connection signal="part_added" from="HBox/Left/VBox/Scroll/Parts" to="." method="_on_parts_part_added"]
+[connection signal="part_added" from="HBox/GunBase" to="." method="_on_gun_base_part_added"]
 [connection signal="pressed" from="Buttons/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Buttons/SaveLoad" to="." method="_on_save_load_pressed"]

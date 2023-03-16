@@ -3,11 +3,9 @@
 [ext_resource type="Script" path="res://Code/gun_builder/gun_part.gd" id="1_oxqq7"]
 
 [node name="GunPart" type="TextureRect"]
-custom_minimum_size = Vector2(128, 128)
 offset_right = 40.0
 offset_bottom = 40.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-expand_mode = 1
 stretch_mode = 5
 script = ExtResource("1_oxqq7")
