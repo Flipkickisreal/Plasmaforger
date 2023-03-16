@@ -1,4 +1,4 @@
-[gd_scene load_steps=196 format=3 uid="uid://clq0whv3j3ncv"]
+[gd_scene load_steps=201 format=3 uid="uid://clq0whv3j3ncv"]
 
 [ext_resource type="Shader" path="res://Shaders/Backgroundspace.gdshader" id="1_jmxlv"]
 [ext_resource type="Script" path="res://Code/gamebox.gd" id="1_u0s2c"]
@@ -1178,6 +1178,42 @@ events = [SubResource("InputEventKey_rdcpa")]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4nej7"]
 
+[sub_resource type="Gradient" id="Gradient_fg6yt"]
+offsets = PackedFloat32Array(0, 0.209184, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.892857, 0.892857, 0.892857, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kv1rq"]
+gradient = SubResource("Gradient_fg6yt")
+
+[sub_resource type="Gradient" id="Gradient_nlcqt"]
+offsets = PackedFloat32Array(0, 0.392857, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.831633, 0.831633, 0.831633, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_cpvpo"]
+gradient = SubResource("Gradient_nlcqt")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v0drd"]
+lifetime_randomness = 0.19
+emission_shape = 3
+emission_box_extents = Vector3(500, 20, 1)
+particle_flag_disable_z = true
+gravity = Vector3(0, 30, 0)
+initial_velocity_max = 86.96
+angular_velocity_min = -125.22
+angular_velocity_max = 46.13
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+color = Color(1, 0, 0.0392157, 1)
+color_ramp = SubResource("GradientTexture1D_cpvpo")
+color_initial_ramp = SubResource("GradientTexture1D_kv1rq")
+turbulence_enabled = true
+turbulence_noise_strength = 7.67
+turbulence_noise_speed_random = 0.58
+turbulence_influence_min = 0.07
+turbulence_influence_max = 0.29
+turbulence_initial_displacement_min = 11.6
+turbulence_initial_displacement_max = 11.6
+
 [node name="Gamebox" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -1201,7 +1237,6 @@ texture = SubResource("NoiseTexture2D_16n3i")
 script = ExtResource("3_3b85d")
 
 [node name="HBCone" type="HBoxContainer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1232,7 +1267,7 @@ script = ExtResource("7_1nnuf")
 
 [node name="Planetbuttonone" type="Button" parent="HBCone/VBCone/CenterContainer"]
 editor_description = "planet button"
-self_modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0.00392157)
 custom_minimum_size = Vector2(340, 340)
 layout_mode = 2
 action_mode = 0
@@ -1338,7 +1373,7 @@ centered = false
 offset = Vector2(-5, 15)
 
 [node name="Planetbuttontwo" type="Button" parent="HBCone/VBCthree/CenterContainer"]
-self_modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0.00392157)
 custom_minimum_size = Vector2(345, 345)
 layout_mode = 2
 action_mode = 0
@@ -1375,6 +1410,7 @@ theme_override_constants/margin_bottom = 5
 [node name="ParallaxBackgroundElf" type="ParallaxBackground" parent="MarginElf"]
 process_mode = 1
 layer = 0
+visible = false
 script = ExtResource("15_r0u8w")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="MarginElf/ParallaxBackgroundElf"]
@@ -1432,6 +1468,7 @@ texture = ExtResource("17_1rb5g")
 layer = 2
 
 [node name="PCelf" type="PanelContainer" parent="MarginElf/CanvasLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1460,7 +1497,6 @@ theme_override_constants/margin_bottom = 5
 [node name="ParallaxBackgroundDwarf" type="ParallaxBackground" parent="MarginDwarf"]
 process_mode = 1
 layer = 0
-visible = false
 script = ExtResource("20_13fa8")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="MarginDwarf/ParallaxBackgroundDwarf"]
@@ -1541,6 +1577,12 @@ rotation = 1.55334
 scale = Vector2(0.764742, 1)
 texture = ExtResource("22_m7gpn")
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="MarginDwarf/ParallaxBackgroundDwarf"]
+position = Vector2(624, 592)
+amount = 5000
+process_material = SubResource("ParticleProcessMaterial_v0drd")
+lifetime = 9.34
+
 [node name="CanvasLayer" type="CanvasLayer" parent="MarginDwarf"]
 layer = 2
 
@@ -1563,6 +1605,8 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[connection signal="dwarfpressed" from="HBCone" to="MarginDwarf/ParallaxBackgroundDwarf" method="_on_hb_cone_dwarfpressed"]
+[connection signal="elfpressed" from="HBCone" to="MarginElf/ParallaxBackgroundElf" method="_on_hb_cone_elfpressed"]
 [connection signal="pressed" from="HBCone/VBCone/CenterContainer/Planetbuttonone" to="HBCone" method="_on_planetbuttonone_pressed"]
 [connection signal="pressed" from="HBCone/VBCone/CenterContainer/Planetbuttonone" to="HBCone/VBCtwo/PanelContainer/Launchelf" method="_on_planetbuttonone_pressed"]
 [connection signal="pressed" from="HBCone/VBCone/CenterContainer/Planetbuttonone" to="MarginElf/ParallaxBackgroundElf" method="_on_planetbuttonone_pressed"]

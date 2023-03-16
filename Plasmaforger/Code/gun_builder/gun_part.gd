@@ -1,10 +1,15 @@
 extends TextureRect
 class_name GunPartSprite
 
-
-func _get_drag_data(_at_position: Vector2):
-	var preview := duplicate()
-	preview.size = Vector2.ZERO
+func _get_drag_data(at_position: Vector2):
+	var preview := Control.new()
 	preview.modulate.a = 0.5
+	var t := TextureRect.new()
+	preview.add_child(t)
+	t.texture = texture
+	t.position = -at_position
 	set_drag_preview(preview)
-	return self
+	return {
+		"part": self,
+		"offset": at_position,
+	}

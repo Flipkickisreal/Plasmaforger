@@ -6,11 +6,11 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
-func _on_planetbuttonone_pressed() -> void:
+func _on_hb_cone_elfpressed() -> void:
 	await get_tree().create_timer(5.0).timeout
 	show()
 	while get_parent().get_parent().Plasmaplaying == true:

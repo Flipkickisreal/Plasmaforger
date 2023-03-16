@@ -10,7 +10,7 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_planetbuttontwo_pressed() -> void:
+func _on_hb_cone_dwarfpressed() -> void:
 	await get_tree().create_timer(5.0).timeout
 	show()
 	while get_parent().get_parent().Plasmaplaying == true:
