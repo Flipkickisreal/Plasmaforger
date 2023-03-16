@@ -90,12 +90,25 @@ script = ExtResource("1_tgp2v")
 grid_line_color = Color(0.403922, 0.403922, 0.403922, 1)
 
 [node name="Right" type="PanelContainer" parent="HBox"]
-custom_minimum_size = Vector2(200, 590)
 layout_mode = 2
-size_flags_vertical = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBox/Right"]
 layout_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="HBox/Right/VBoxContainer"]
+layout_mode = 2
+
+[node name="Settings" type="Button" parent="HBox/Right/VBoxContainer/Buttons"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.858824, 0.968627, 1, 1)
+theme_override_fonts/font = ExtResource("4_0o8ug")
+text = "Settings"
+
+[node name="SaveLoad" type="Button" parent="HBox/Right/VBoxContainer/Buttons"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.858824, 0.968627, 1, 1)
+theme_override_fonts/font = ExtResource("4_0o8ug")
+text = "Save / Load"
 
 [node name="Score" type="Label" parent="HBox/Right/VBoxContainer"]
 layout_mode = 2
@@ -103,29 +116,8 @@ theme_override_colors/font_color = Color(0.858824, 0.968627, 1, 1)
 theme_override_fonts/font = ExtResource("6_xle8k")
 text = "Score:"
 
-[node name="Buttons" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -203.0
-offset_bottom = 30.0
-grow_horizontal = 0
-
-[node name="Settings" type="Button" parent="Buttons"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.858824, 0.968627, 1, 1)
-theme_override_fonts/font = ExtResource("4_0o8ug")
-text = "Settings"
-
-[node name="SaveLoad" type="Button" parent="Buttons"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.858824, 0.968627, 1, 1)
-theme_override_fonts/font = ExtResource("4_0o8ug")
-text = "Save / Load"
-
 [connection signal="part_added" from="HBox/Left/VBox/Scroll/Parts" to="." method="_on_parts_part_added"]
 [connection signal="timeout" from="HBox/Left/VBox/Scroll/Parts/Timer" to="HBox/Left/VBox/Scroll/Parts" method="_on_timer_timeout"]
 [connection signal="part_added" from="HBox/GunBase" to="." method="_on_gun_base_part_added"]
-[connection signal="pressed" from="Buttons/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="Buttons/SaveLoad" to="." method="_on_save_load_pressed"]
+[connection signal="pressed" from="HBox/Right/VBoxContainer/Buttons/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="HBox/Right/VBoxContainer/Buttons/SaveLoad" to="." method="_on_save_load_pressed"]
