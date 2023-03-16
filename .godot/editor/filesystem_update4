@@ -1,0 +1,7 @@
+res://gamebox.tscn
+res://Code/gun_builder/gun_base.gd
+res://Code/gun_builder/gun_builder.gd
+res://Code/gun_builder/parts.gd
+res://Code/gun_builder/gun_part.tscn
+res://Code/gun_builder/gun_builder.tscn
+res://Code/gamebox.gd
