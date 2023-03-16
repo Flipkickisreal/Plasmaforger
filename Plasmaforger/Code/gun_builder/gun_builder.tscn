@@ -17,7 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_8582y")
 script = ExtResource("1_adwiy")
-metadata/_edit_lock_ = true
+_GunPartSpriteScene = ExtResource("2_b24e8")
 
 [node name="HBox" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -56,7 +56,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("4_sfklx")
-_GunPartSpriteScene = ExtResource("2_b24e8")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBox/Left/VBox"]
 layout_mode = 2
@@ -89,24 +88,10 @@ grid_line_color = Color(0.403922, 0.403922, 0.403922, 1)
 
 [node name="Right" type="PanelContainer" parent="HBox"]
 layout_mode = 2
+size_flags_vertical = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBox/Right"]
 layout_mode = 2
-
-[node name="Buttons" type="HBoxContainer" parent="HBox/Right/VBoxContainer"]
-layout_mode = 2
-
-[node name="Settings" type="Button" parent="HBox/Right/VBoxContainer/Buttons"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.858824, 0.968627, 1, 1)
-theme_override_fonts/font = ExtResource("4_0o8ug")
-text = "Settings"
-
-[node name="SaveLoad" type="Button" parent="HBox/Right/VBoxContainer/Buttons"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.858824, 0.968627, 1, 1)
-theme_override_fonts/font = ExtResource("4_0o8ug")
-text = "Save / Load"
 
 [node name="Score" type="Label" parent="HBox/Right/VBoxContainer"]
 layout_mode = 2
@@ -114,13 +99,49 @@ theme_override_colors/font_color = Color(0.858824, 0.968627, 1, 1)
 theme_override_fonts/font = ExtResource("6_xle8k")
 text = "Score:"
 
-[node name="Timer" type="Timer" parent="."]
-unique_name_in_owner = true
-wait_time = 15.0
-autostart = true
+[node name="OptionButton" type="OptionButton" parent="HBox/Right/VBoxContainer"]
+layout_mode = 2
+item_count = 4
+popup/item_0/text = "Firearm"
+popup/item_0/id = 0
+popup/item_1/text = "Plasma"
+popup/item_1/id = 1
+popup/item_2/text = "Railgun"
+popup/item_2/id = 2
+popup/item_3/text = "Direct"
+popup/item_3/id = 3
+
+[node name="Equippedpartsscroll" type="ScrollContainer" parent="HBox/Right/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Equippedpartsdata" type="VBoxContainer" parent="HBox/Right/VBoxContainer/Equippedpartsscroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Buttons" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -203.0
+offset_bottom = 30.0
+grow_horizontal = 0
+
+[node name="Settings" type="Button" parent="Buttons"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.858824, 0.968627, 1, 1)
+theme_override_fonts/font = ExtResource("4_0o8ug")
+text = "Settings"
+
+[node name="SaveLoad" type="Button" parent="Buttons"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.858824, 0.968627, 1, 1)
+theme_override_fonts/font = ExtResource("4_0o8ug")
+text = "Save / Load"
 
 [connection signal="part_added" from="HBox/Left/VBox/Scroll/Parts" to="." method="_on_parts_part_added"]
 [connection signal="part_added" from="HBox/GunBase" to="." method="_on_gun_base_part_added"]
-[connection signal="pressed" from="HBox/Right/VBoxContainer/Buttons/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="HBox/Right/VBoxContainer/Buttons/SaveLoad" to="." method="_on_save_load_pressed"]
-[connection signal="timeout" from="Timer" to="HBox/Left/VBox/Scroll/Parts" method="_on_timer_timeout"]
+[connection signal="pressed" from="Buttons/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Buttons/SaveLoad" to="." method="_on_save_load_pressed"]
