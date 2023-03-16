@@ -108,6 +108,5 @@ theme_override_colors/font_color = Color(0.858824, 0.968627, 1, 1)
 theme_override_fonts/font = ExtResource("4_0o8ug")
 text = "Save / Load"
 
-[connection signal="parts_changed" from="HBox/Left/VBox/Scroll/Parts" to="HBox/Left/VBox/HBoxContainer/Cashmenu" method="_on_parts_parts_changed"]
 [connection signal="pressed" from="Buttons/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Buttons/SaveLoad" to="." method="_on_save_load_pressed"]
