@@ -23,10 +23,6 @@ Options="*res://Code/autoloads/options.tscn"
 SaveLoad="*res://Code/autoloads/save_load.tscn"
 GunPartsLoader="*res://Code/autoloads/gun_parts_loader.gd"
 
-[display]
-
-window/size/mode=3
-
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

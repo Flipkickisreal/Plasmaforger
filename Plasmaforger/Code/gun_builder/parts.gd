@@ -44,6 +44,5 @@ func _make_new_part() -> void:
 
 
 func _on_timer_timeout() -> void:
-	print("timeout")
 	get_child(-1).queue_free()
 	_make_new_part()

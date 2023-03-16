@@ -17,6 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_8582y")
 script = ExtResource("1_adwiy")
+metadata/_edit_lock_ = true
 
 [node name="HBox" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -56,9 +57,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("4_sfklx")
 _GunPartSpriteScene = ExtResource("2_b24e8")
-
-[node name="Timer" type="Timer" parent="HBox/Left/VBox/Scroll/Parts"]
-autostart = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBox/Left/VBox"]
 layout_mode = 2
@@ -116,8 +114,13 @@ theme_override_colors/font_color = Color(0.858824, 0.968627, 1, 1)
 theme_override_fonts/font = ExtResource("6_xle8k")
 text = "Score:"
 
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 15.0
+autostart = true
+
 [connection signal="part_added" from="HBox/Left/VBox/Scroll/Parts" to="." method="_on_parts_part_added"]
-[connection signal="timeout" from="HBox/Left/VBox/Scroll/Parts/Timer" to="HBox/Left/VBox/Scroll/Parts" method="_on_timer_timeout"]
 [connection signal="part_added" from="HBox/GunBase" to="." method="_on_gun_base_part_added"]
 [connection signal="pressed" from="HBox/Right/VBoxContainer/Buttons/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="HBox/Right/VBoxContainer/Buttons/SaveLoad" to="." method="_on_save_load_pressed"]
+[connection signal="timeout" from="Timer" to="HBox/Left/VBox/Scroll/Parts" method="_on_timer_timeout"]
