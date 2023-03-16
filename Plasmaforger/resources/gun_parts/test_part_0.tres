@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="FirearmHeatSink" load_steps=3 format=3 uid="uid://d28fkpr0coksm"]
+
+[ext_resource type="Script" path="res://resources/gun_parts/weapons/firearms/heatsink.gd" id="1_yl3fj"]
+[ext_resource type="Texture2D" uid="uid://372ga0usic7w" path="res://Sprites/gun_parts/test_part_0.png" id="2_3f5id"]
+
+[resource]
+script = ExtResource("1_yl3fj")
+KELV = 0.0
+AMMO = 0.0
+CAP = 0.0
+AIM = 0.0
+HEVY = 0.0
+TESLA = 0.0
+IMPCT = 0.0
+ROF = 0.0
+IPRICE = 100.0
+MPRICE = 0.0
+sprite = ExtResource("2_3f5id")
+name = "Test Part 0"
