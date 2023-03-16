@@ -1,8 +1,8 @@
 extends Label
-var money = 1000
+var money = @onready 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	self.text = str(money)
+	text = str(money)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,6 +17,11 @@ func transact() -> void:
 func _on_parts_parts_changed() -> void:
 	var addtomoney = %Parts.changetomoney
 	money += addtomoney
-	self.text = str(money)
-	money -= addtomoney
+	text = str(money)
 	
+
+
+func _on_gun_base_basechanged() -> void:
+	var removemoney = $"../../../../GunBase".gb_changetomoney
+	money -= removemoney
+	text = str(money)

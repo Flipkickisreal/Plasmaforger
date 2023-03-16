@@ -1,6 +1,5 @@
 extends Control
 
-
 @export var GunPartScene: PackedScene
 
 
@@ -17,3 +16,4 @@ func _on_settings_pressed() -> void:
 
 func _on_save_load_pressed() -> void:
 	SaveLoad.show_save_load(true)
+

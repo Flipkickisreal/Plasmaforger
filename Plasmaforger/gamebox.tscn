@@ -1605,6 +1605,8 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[connection signal="dwarfpressed" from="HBCone" to="MarginDwarf/ParallaxBackgroundDwarf" method="_on_hb_cone_dwarfpressed"]
+[connection signal="elfpressed" from="HBCone" to="MarginElf/ParallaxBackgroundElf" method="_on_hb_cone_elfpressed"]
 [connection signal="pressed" from="HBCone/VBCone/CenterContainer/Planetbuttonone" to="HBCone" method="_on_planetbuttonone_pressed"]
 [connection signal="pressed" from="HBCone/VBCone/CenterContainer/Planetbuttonone" to="HBCone/VBCtwo/PanelContainer/Launchelf" method="_on_planetbuttonone_pressed"]
 [connection signal="pressed" from="HBCone/VBCone/CenterContainer/Planetbuttonone" to="MarginElf/ParallaxBackgroundElf" method="_on_planetbuttonone_pressed"]

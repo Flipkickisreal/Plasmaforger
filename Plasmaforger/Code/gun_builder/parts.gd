@@ -1,18 +1,17 @@
 extends VBoxContainer
-
-
-signal part_sold(amount: float)
-
+signal parts_changed
+@export var changetomoney = 0
 
 func _can_drop_data(_at_position: Vector2, data) -> bool:
-	return data is Dictionary and data.has_all(["part", "offset"]) and data.part is GunPartSprite
-
+	return data is Dictionary and data.has_all(["part","offset"]) and data.part is GunPartSprite
 
 func _drop_data(at_position: Vector2, data) -> void:
 	if not data.part.get_parent() == self:
-		emit_signal("parts_changed", data.part.data.IPRICE)
+		changetomoney += 1000
+		emit_signal("parts_changed")
 		data.part.get_parent().remove_child(data.part)
 		add_child(data.part)
+		changetomoney = 0
 	for other_child in get_children():
 		if other_child == data.part:
 			continue
