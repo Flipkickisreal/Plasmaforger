@@ -15,7 +15,7 @@ const TEST_PARTS := [
 ]
 
 @export var _GunPartSpriteScene: PackedScene
-@export var money := 3_000
+@export var money := 3_000.0
 
 
 func _ready() -> void:

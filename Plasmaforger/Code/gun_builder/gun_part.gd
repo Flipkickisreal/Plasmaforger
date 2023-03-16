@@ -4,6 +4,7 @@ class_name GunPartSprite
 
 var data: GunPart
 
+
 func _get_drag_data(at_position: Vector2):
 	var preview := Control.new()
 	preview.modulate.a = 0.5

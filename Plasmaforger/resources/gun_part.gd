@@ -45,5 +45,5 @@ func _init(
 	price_i = p_price_i
 	price_m = p_price_m
 	
-	rarity = randi() % Rarity.size()
+	rarity = randi() % Rarity.size() as Rarity
 	price_i = PRICES[rarity]
