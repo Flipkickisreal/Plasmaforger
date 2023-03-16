@@ -1,5 +1,5 @@
 extends Label
-var money = @onready 
+var money = 3000
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	text = str(money)
