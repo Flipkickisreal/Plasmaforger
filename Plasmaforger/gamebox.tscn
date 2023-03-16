@@ -18,7 +18,7 @@
 [ext_resource type="Script" path="res://Code/ParallaxBGelf.gd" id="15_r0u8w"]
 [ext_resource type="Texture2D" uid="uid://33pwo1b4x534" path="res://Sprites/pxArt (2).png" id="16_3xjy7"]
 [ext_resource type="Texture2D" uid="uid://fmni51cctfq7" path="res://Sprites/pxArt (3).png" id="17_1rb5g"]
-[ext_resource type="PackedScene" uid="uid://bwyoi285vng18" path="res://Code/gun_builder/gun_builder.tscn" id="19_2rbm7"]
+[ext_resource type="PackedScene" uid="uid://dvic78eqplbxi" path="res://Code/gun_builder/gun_builder.tscn" id="19_2rbm7"]
 [ext_resource type="Texture2D" uid="uid://3rl6pm3jj182" path="res://Sprites/pxArt (5).png" id="20_3ec2s"]
 [ext_resource type="Script" path="res://Code/ParallaxBGdwarf.gd" id="20_13fa8"]
 [ext_resource type="Texture2D" uid="uid://nou2adstxbkq" path="res://Sprites/pxArt (6).png" id="21_1ss75"]
