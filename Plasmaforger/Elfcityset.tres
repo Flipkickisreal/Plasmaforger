@@ -1,8 +1,8 @@
-[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://cbjtbhbvc4s0v"]
+[gd_resource type="TileSet" load_steps=7 format=3]
 
-[ext_resource type="Texture2D" uid="uid://djhcro1srdyps" path="res://Sprites/pxArt (1).png" id="1_7r0jw"]
-[ext_resource type="Texture2D" uid="uid://33pwo1b4x534" path="res://Sprites/pxArt (2).png" id="2_xeg1w"]
-[ext_resource type="Texture2D" uid="uid://fmni51cctfq7" path="res://Sprites/pxArt (3).png" id="3_ua3f5"]
+[ext_resource type="Texture2D" uid="uid://djhcro1srdyps" path="res://sprites/pxArt (1).png" id="1_7r0jw"]
+[ext_resource type="Texture2D" uid="uid://33pwo1b4x534" path="res://sprites/pxArt (2).png" id="2_xeg1w"]
+[ext_resource type="Texture2D" uid="uid://fmni51cctfq7" path="res://sprites/pxArt (3).png" id="3_ua3f5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jbc4u"]
 resource_name = "Elfthree"

@@ -31,7 +31,7 @@ func _drop_data(at_position: Vector2, data) -> void:
 		part_added.emit(data.part.data)
 		data.part.get_parent().remove_child(data.part)
 		add_child(data.part)
-	data.part.position = (at_position - data.offset).snapped(grid_size)
+	data.part.position = ((at_position - data.offset) / grid_size).floor() * grid_size
 
 
 func _is_part_overlapping(data: Dictionary) -> bool:
