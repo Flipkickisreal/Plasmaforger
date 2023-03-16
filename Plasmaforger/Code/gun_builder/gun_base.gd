@@ -20,6 +20,7 @@ func _can_drop_data(_at_position: Vector2, data) -> bool:
 			data is Dictionary
 			and data.has_all(["part", "offset"])
 			and data.offset is Vector2
+			and is_instance_valid(data.part)
 			and data.part is GunPartSprite
 			and (owner.money >= data.part.data.price_i or data.part.get_parent() == self)
 			and not _is_part_overlapping(data)
@@ -31,7 +32,7 @@ func _drop_data(at_position: Vector2, data) -> void:
 		part_added.emit(data.part.data)
 		data.part.get_parent().remove_child(data.part)
 		add_child(data.part)
-	data.part.position = ((at_position - data.offset) / grid_size).floor() * grid_size
+	data.part.position = ((at_position) / grid_size).floor() * grid_size
 
 
 func _is_part_overlapping(data: Dictionary) -> bool:

@@ -40,13 +40,13 @@ func _ready() -> void:
 func get_all_images_in_dir(base_path: String) -> Array:
 	var dir := DirAccess.open(base_path)
 	dir.list_dir_begin()
-	var images := []
+	var results := []
 	var file_name := dir.get_next()
 	while not file_name == "":
 		if dir.current_is_dir():
-			images.append_array(get_all_images_in_dir(base_path + file_name + "/"))
+			results.append_array(get_all_images_in_dir(base_path + file_name + "/"))
 		elif file_name.ends_with(".png.import"):
-			images.append(base_path + file_name.replace(".import", ""))
+			results.append(base_path + file_name.replace(".import", ""))
 		file_name = dir.get_next()
 	dir.list_dir_end()
-	return images
+	return results

@@ -58,6 +58,7 @@ script = ExtResource("4_sfklx")
 _GunPartSpriteScene = ExtResource("2_b24e8")
 
 [node name="Timer" type="Timer" parent="HBox/Left/VBox/Scroll/Parts"]
+autostart = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBox/Left/VBox"]
 layout_mode = 2
@@ -110,6 +111,7 @@ theme_override_fonts/font = ExtResource("4_0o8ug")
 text = "Save / Load"
 
 [connection signal="part_added" from="HBox/Left/VBox/Scroll/Parts" to="." method="_on_parts_part_added"]
+[connection signal="timeout" from="HBox/Left/VBox/Scroll/Parts/Timer" to="HBox/Left/VBox/Scroll/Parts" method="_on_timer_timeout"]
 [connection signal="part_added" from="HBox/GunBase" to="." method="_on_gun_base_part_added"]
 [connection signal="pressed" from="Buttons/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Buttons/SaveLoad" to="." method="_on_save_load_pressed"]
