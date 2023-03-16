@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bwyoi285vng18"]
+[gd_scene load_steps=9 format=3 uid="uid://bwyoi285vng18"]
 
 [ext_resource type="Theme" uid="uid://br81apg7c5q8b" path="res://resources/themes/main_theme.tres" id="1_8582y"]
 [ext_resource type="Script" path="res://Code/gun_builder/gun_builder.gd" id="1_adwiy"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://cxywj4ongmny" path="res://Fonts/static/FiraCode-Regular.ttf" id="4_0o8ug"]
 [ext_resource type="Script" path="res://Code/gun_builder/parts.gd" id="4_sfklx"]
 [ext_resource type="Script" path="res://Code/gun_builder/Cashmenu.gd" id="6_hqjvv"]
+[ext_resource type="FontFile" uid="uid://c4jm4g0klh4bu" path="res://Fonts/static/FiraCode-Bold.ttf" id="6_xle8k"]
 
 [node name="GunBuilder" type="Control"]
 layout_mode = 3
@@ -37,8 +38,12 @@ layout_mode = 2
 layout_mode = 2
 theme_override_colors/font_color = Color(0.858824, 0.968627, 1, 1)
 theme_override_fonts/font = ExtResource("4_0o8ug")
-text = "Part Selector"
+text = "E-Recto's! 
+Perveyor of Fine Parts
+Fight Hard: Shop E-Recto's"
 horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
 
 [node name="Scroll" type="ScrollContainer" parent="HBox/Left/VBox"]
 layout_mode = 2
@@ -53,10 +58,22 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("4_sfklx")
 
-[node name="Cashmenu" type="Label" parent="HBox/Left/VBox"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBox/Left/VBox"]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="HBox/Left/VBox/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
 theme_override_colors/font_color = Color(0.858824, 0.968627, 1, 1)
-theme_override_fonts/font = ExtResource("4_0o8ug")
+theme_override_fonts/font = ExtResource("6_xle8k")
+text = "  $"
+
+[node name="Cashmenu" type="Label" parent="HBox/Left/VBox/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.858824, 0.968627, 1, 1)
+theme_override_fonts/font = ExtResource("6_xle8k")
 script = ExtResource("6_hqjvv")
 
 [node name="HSeparator" type="HSeparator" parent="HBox/Left/VBox"]
@@ -91,5 +108,6 @@ theme_override_colors/font_color = Color(0.858824, 0.968627, 1, 1)
 theme_override_fonts/font = ExtResource("4_0o8ug")
 text = "Save / Load"
 
+[connection signal="parts_changed" from="HBox/Left/VBox/Scroll/Parts" to="HBox/Left/VBox/HBoxContainer/Cashmenu" method="_on_parts_parts_changed"]
 [connection signal="pressed" from="Buttons/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Buttons/SaveLoad" to="." method="_on_save_load_pressed"]
