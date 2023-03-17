@@ -1,4 +1,4 @@
-[gd_scene load_steps=308 format=3 uid="uid://dkb7621xupibm"]
+[gd_scene load_steps=310 format=3 uid="uid://dkb7621xupibm"]
 
 [ext_resource type="Script" path="res://Code/gamebox.gd" id="1_u0s2c"]
 [ext_resource type="Shader" path="res://shaders/backgroundspace.gdshader" id="2_ha4hp"]
@@ -13,6 +13,7 @@
 [ext_resource type="FontFile" uid="uid://7qyqxr5j5q5" path="res://Fonts/static/FiraCode-Light.ttf" id="8_ctjb0"]
 [ext_resource type="Script" path="res://Code/Launchsmoke.gd" id="11_30vma"]
 [ext_resource type="Script" path="res://Code/Launchdwarf.gd" id="12_6xw1e"]
+[ext_resource type="Script" path="res://marginelf.gd" id="14_ghk3k"]
 [ext_resource type="Texture2D" uid="uid://djhcro1srdyps" path="res://Sprites/pxArt (1).png" id="14_twndl"]
 [ext_resource type="Script" path="res://Code/HBCelf.gd" id="14_wfojb"]
 [ext_resource type="Shader" path="res://shaders/moon.gdshader" id="15_k2bag"]
@@ -24,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://nou2adstxbkq" path="res://Sprites/pxArt (6).png" id="21_1ss75"]
 [ext_resource type="Texture2D" uid="uid://cfwg787508e0t" path="res://Sprites/pxArt (7).png" id="22_m7gpn"]
 [ext_resource type="Script" path="res://Code/parallaxbg.gd" id="22_n5g21"]
+[ext_resource type="Script" path="res://margindwarf.gd" id="23_6uo1i"]
 [ext_resource type="Script" path="res://Code/HBCdwarf.gd" id="24_mtcu4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8s5gw"]
@@ -2161,6 +2163,7 @@ theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
+script = ExtResource("14_ghk3k")
 
 [node name="ParallaxBackgroundElf" type="ParallaxBackground" parent="MarginElf"]
 process_mode = 1
@@ -2275,6 +2278,7 @@ theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
+script = ExtResource("23_6uo1i")
 
 [node name="ParallaxBackgroundDwarf" type="ParallaxBackground" parent="MarginDwarf"]
 process_mode = 1
@@ -2389,10 +2393,12 @@ offset_bottom = 40.0
 
 [connection signal="anythingpressed" from="HBCone" to="MarginElf/CanvasLayer/PCelf/GunBuilder" method="_on_hb_cone_anythingpressed"]
 [connection signal="anythingpressed" from="HBCone" to="MarginDwarf/CanvasLayer/PCdwarf/GunBuilder" method="_on_hb_cone_anythingpressed"]
+[connection signal="dwarfpressed" from="HBCone" to="MarginElf" method="_on_hb_cone_dwarfpressed"]
 [connection signal="dwarfpressed" from="HBCone" to="MarginDwarf/ParallaxBackgroundDwarf" method="_on_hb_cone_dwarfpressed"]
 [connection signal="dwarfpressed" from="HBCone" to="MarginDwarf/CanvasLayer/PCdwarf/GunBuilder" method="_on_hb_cone_dwarfpressed"]
 [connection signal="elfpressed" from="HBCone" to="MarginElf/ParallaxBackgroundElf" method="_on_hb_cone_elfpressed"]
 [connection signal="elfpressed" from="HBCone" to="MarginElf/CanvasLayer/PCelf/GunBuilder" method="_on_hb_cone_elfpressed"]
+[connection signal="elfpressed" from="HBCone" to="MarginDwarf" method="_on_hb_cone_elfpressed"]
 [connection signal="pressed" from="HBCone/VBCone/CenterContainer/Planetbuttonone" to="HBCone" method="_on_planetbuttonone_pressed"]
 [connection signal="pressed" from="HBCone/VBCone/CenterContainer/Planetbuttonone" to="HBCone/VBCtwo/PanelContainer/Launchelf" method="_on_planetbuttonone_pressed"]
 [connection signal="pressed" from="HBCone/VBCone/CenterContainer/Planetbuttonone" to="MarginElf/ParallaxBackgroundElf" method="_on_planetbuttonone_pressed"]
