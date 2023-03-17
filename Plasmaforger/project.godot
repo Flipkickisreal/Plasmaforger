@@ -14,7 +14,7 @@ config/name="Plasmaforger"
 run/main_scene="res://gamebox.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 boot_splash/bg_color=Color(0.0235294, 0.160784, 0.188235, 1)
-boot_splash/image="res://Sprites/pxArt (6).png"
+boot_splash/image="res://Sprites/pxArt (8).png"
 config/icon="res://Sprites/pxArt (9).png"
 
 [autoload]

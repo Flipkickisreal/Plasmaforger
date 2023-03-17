@@ -5,5 +5,5 @@ void fragment() {
 }
 void vertex() {
   // Animate Sprite2D moving in big circle around its location
-  VERTEX += vec2(cos(TIME)*1000.0, sin(TIME)*800.0);
+  VERTEX += vec2(cos(TIME*0.4)*100.0, sin(TIME*0.1)*30.0);
 }

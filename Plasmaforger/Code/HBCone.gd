@@ -10,7 +10,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
@@ -21,8 +21,8 @@ func _on_planetbuttonone_pressed() -> void:
 		emit_signal("elfpressed")
 		await get_tree().create_timer(5.0).timeout
 		hide()
-		await get_tree().create_timer(60).timeout
-		free()
+		await get_tree().create_timer(20).timeout
+		queue_free()
 
 func _on_planetbuttontwo_pressed() -> void:
 	while anything_pressed == false:
@@ -31,5 +31,5 @@ func _on_planetbuttontwo_pressed() -> void:
 		emit_signal("dwarfpressed")
 		await get_tree().create_timer(5.0).timeout
 		hide() 
-		await get_tree().create_timer(60).timeout
-		free()               
+		await get_tree().create_timer(20).timeout
+		queue_free()               

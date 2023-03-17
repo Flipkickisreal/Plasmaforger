@@ -1,7 +1,8 @@
 extends Control
 
 signal gamestarted
-
+signal dwarf
+signal elf
 @export var money := 3_000.0
 
 
@@ -29,3 +30,11 @@ func _on_gun_base_part_added(data: GunPart) -> void:
 
 func _on_hb_cone_anythingpressed() -> void:
 	emit_signal("gamestarted")
+
+
+func _on_hb_cone_dwarfpressed() -> void:
+	emit_signal("dwarf")
+
+
+func _on_hb_cone_elfpressed() -> void:
+	emit_signal("elf")
