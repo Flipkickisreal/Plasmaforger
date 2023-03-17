@@ -1,3 +1,4 @@
+class_name GunPartsLoader
 extends Node
 
 
@@ -54,7 +55,15 @@ func get_all_images_in_dir(base_path: String) -> Array:
 		file_name = dir.get_next()
 	dir.list_dir_end()
 	return results
-	
+
+
+func new_gun_part() -> GunPartSprite:
+	var part_class: GDScript = gun_part_classes.pick_random()
+	var image: Resource = images.pick_random()
+	var part = part_class.new(image)
+	var scene = GunPartSprite.new(part)
+	return scene
+
 	#func get_all_shaders_in_dir(base_path: String) -> Array:
 		#var shadedir := DirAccess.open(base_path)
 		#shadedir.list_dir_begin()

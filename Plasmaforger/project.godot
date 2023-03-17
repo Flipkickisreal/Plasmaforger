@@ -21,7 +21,6 @@ config/icon="res://Sprites/pxArt (9).png"
 
 Options="*res://Code/autoloads/options.tscn"
 SaveLoad="*res://Code/autoloads/save_load.tscn"
-GunPartsLoader="*res://Code/autoloads/gun_parts_loader.gd"
 
 [rendering]
 
