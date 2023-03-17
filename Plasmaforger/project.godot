@@ -13,12 +13,15 @@ config_version=5
 config/name="Plasmaforger"
 run/main_scene="res://gamebox.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.0235294, 0.160784, 0.188235, 1)
+boot_splash/image="res://Sprites/pxArt (8).png"
+config/icon="res://Sprites/pxArt (9).png"
 
 [autoload]
 
 Options="*res://Code/autoloads/options.tscn"
 SaveLoad="*res://Code/autoloads/save_load.tscn"
+GunPartsLoader="*res://Code/autoloads/gun_parts_loader.gd"
 
 [rendering]
 

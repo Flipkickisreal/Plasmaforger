@@ -1,10 +1,12 @@
 extends TextureRect
-signal basechanged
+
+
+signal part_added(data: GunPart)
 
 @export var grid_size := Vector2(64, 64)
 @export var grid_line_color := Color.GRAY
 @export var grid_line_width := 3.0
-@export var gb_changetomoney = 0
+
 
 func _draw() -> void:
 	for x in range(0, size.x, grid_size.x):
@@ -14,15 +16,29 @@ func _draw() -> void:
 
 
 func _can_drop_data(_at_position: Vector2, data) -> bool:
-	return data is Dictionary and data.has_all(["part", "offset"]) and data.part is GunPartSprite
-	
+	return (
+			data is Dictionary
+			and data.has_all(["part", "offset"])
+			and data.offset is Vector2
+			and is_instance_valid(data.part)
+			and data.part is GunPartSprite
+			and (owner.money >= data.part.data.price_i or data.part.get_parent() == self)
+			and not _is_part_overlapping(data)
+	)
+
 
 func _drop_data(at_position: Vector2, data) -> void:
-	if $"../Left/VBox/HBoxContainer/Cashmenu".money > 0:
-		if not data.part.get_parent() == self:
-			gb_changetomoney += 1000
-			emit_signal("basechanged")
-			data.part.get_parent().remove_child(data.part)
-			add_child(data.part)
-			gb_changetomoney = 0
-		data.part.position = (at_position - data.offset).snapped(grid_size)
+	if not data.part.get_parent() == self:
+		part_added.emit(data.part.data)
+		data.part.get_parent().remove_child(data.part)
+		add_child(data.part)
+	data.part.position = ((at_position) / grid_size).floor() * grid_size
+
+
+func _is_part_overlapping(data: Dictionary) -> bool:
+	var place_rect := data.part.get_global_rect() as Rect2
+	place_rect.position = get_global_mouse_position() - data.offset
+	for other_part in get_children():
+		if not other_part == data.part and other_part.get_global_rect().intersects(place_rect):
+			return true
+	return false

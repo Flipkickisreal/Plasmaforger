@@ -1,13 +1,13 @@
 extends Control
 
-@export var GunPartScene: PackedScene
+signal gamestarted
+signal dwarf
+signal elf
+@export var money := 3_000.0
 
 
 func _ready() -> void:
-	for i in 5:
-		var g := GunPartScene.instantiate()
-		g.texture = load("res://Sprites/Gearicon.png")
-		%Parts.add_child(g)
+	%CashMenu.text = str(money)
 
 
 func _on_settings_pressed() -> void:
@@ -17,3 +17,24 @@ func _on_settings_pressed() -> void:
 func _on_save_load_pressed() -> void:
 	SaveLoad.show_save_load(true)
 
+
+func _on_parts_part_added(data: GunPart) -> void:
+	money += data.price_i
+	%CashMenu.text = str(money)
+
+
+func _on_gun_base_part_added(data: GunPart) -> void:
+	money -= data.price_i
+	%CashMenu.text = str(money)
+
+
+func _on_hb_cone_anythingpressed() -> void:
+	emit_signal("gamestarted")
+
+
+func _on_hb_cone_dwarfpressed() -> void:
+	emit_signal("dwarf")
+
+
+func _on_hb_cone_elfpressed() -> void:
+	emit_signal("elf")

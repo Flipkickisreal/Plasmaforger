@@ -1,29 +1,57 @@
-extends Resource
 class_name GunPart
+extends Resource
 
 
-@export var KELV: float #tempurature
-@export var AMMO: float #ammunition
-@export var CAP: float #capacitance (resistance to charge drain)
-@export var AIM: float #targeting value
-@export var HEVY: float #weight
-@export var TESLA: float #magnetic interferance
-@export var IMPCT: float #kinetic damage
-@export var ROF: float #rate of fire
-@export var IPRICE: float #price to buy
-@export var MPRICE: float #price to manufacture
+enum Rarity {COMMON, RARE, EPIC, LEGENDARY}
 
-@export var texture: Texture2D
+const PRICES := [100.0, 500.0, 1_000.0, 2_000.0]
+const SHADER: Array = [
+	preload("res://shaders/rarity/common.gdshader"),
+	preload("res://shaders/rarity/rare.gdshader"),
+	preload("res://shaders/rarity/epic.gdshader"),
+	preload("res://shaders/rarity/legendary.gdshader"),
+]
+
 @export var name: String
+@export var texture: Texture2D
+@export var rarity: Rarity
+@export var shader: Shader
+@export var kelv: float		# temperature
+@export var ammo: float		# ammunition
+@export var cap: float		# capacitance (resistance to charge drain)
+@export var aim: float		# targeting value
+@export var hevy: float		# weight
+@export var tesla: float	# magnetic interference
+@export var impct: float	# kinetic damage
+@export var rof: float		# rate of fire
+@export var price_i: float	# price to buy
+@export var price_m: float	# price to manufacture
 
-func _init(Init_KELV = 0, Init_AMMO = 0, Init_CAP = 0, Init_AIM = 0, Init_HEVY = 0, Init_TESLA = 0, Init_IMPCT = 0, Init_ROF = 0, Init_IPRICE = 0, Init_MPRICE = 0) -> void:
-		KELV = Init_KELV
-		AMMO = Init_AMMO
-		CAP = Init_CAP
-		AIM = Init_AIM
-		HEVY = Init_HEVY
-		TESLA = Init_TESLA
-		IMPCT = Init_IMPCT
-		ROF = Init_ROF
-		IPRICE = Init_IPRICE
-		MPRICE = Init_MPRICE
+
+func _init(
+		p_kelv := 0.0,
+		p_ammo := 0.0,
+		p_cap := 0.0,
+		p_aim := 0.0,
+		p_hevy := 0.0,
+		p_tesla := 0.0,
+		p_impct := 0.0,
+		p_rof := 0.0,
+		p_price_i := 0.0,
+		p_price_m := 0.0,
+	) -> void:
+	kelv = p_kelv
+	ammo = p_ammo
+	cap = p_cap
+	aim = p_aim
+	hevy = p_hevy
+	tesla = p_tesla
+	impct = p_impct
+	rof = p_rof
+	price_i = p_price_i
+	price_m = p_price_m
+	
+	rarity = randi() % Rarity.size() as Rarity
+	price_i = PRICES[rarity]
+	texture = load(GunPartsLoader.images.pick_random())
+	shader = SHADER[rarity]

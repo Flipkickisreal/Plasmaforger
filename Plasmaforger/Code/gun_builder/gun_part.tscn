@@ -1,13 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://kgiqrsmg4jpq"]
+[gd_scene load_steps=5 format=3 uid="uid://ckikks00lqa3q"]
 
 [ext_resource type="Script" path="res://Code/gun_builder/gun_part.gd" id="1_oxqq7"]
+[ext_resource type="Shader" path="res://shaders/common.gdshader" id="1_vhnu3"]
+[ext_resource type="Texture2D" uid="uid://cq70l4rxtahmt" path="res://Sprites/gun_parts/finished_parts/dwarf_plasma_emitter_mk3.png" id="1_y6m0h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v7dpw"]
+shader = ExtResource("1_vhnu3")
 
 [node name="GunPart" type="TextureRect"]
-custom_minimum_size = Vector2(128, 128)
-offset_right = 40.0
-offset_bottom = 40.0
+material = SubResource("ShaderMaterial_v7dpw")
+use_parent_material = true
+custom_minimum_size = Vector2(64, 64)
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-expand_mode = 1
-stretch_mode = 5
+texture = ExtResource("1_y6m0h")
+expand_mode = 5
 script = ExtResource("1_oxqq7")
