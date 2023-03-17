@@ -26,9 +26,11 @@ const SHADER: Array = [
 @export var rof: float		# rate of fire
 @export var price_i: float	# price to buy
 @export var price_m: float	# price to manufacture
+var part_class
 
 
 func _init(
+		p_texture: Resource,
 		p_kelv := 0.0,
 		p_ammo := 0.0,
 		p_cap := 0.0,
@@ -53,5 +55,5 @@ func _init(
 	
 	rarity = randi() % Rarity.size() as Rarity
 	price_i = PRICES[rarity]
-	texture = load(GunPartsLoader.images.pick_random())
+	texture = p_texture
 	shader = SHADER[rarity]

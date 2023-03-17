@@ -5,7 +5,7 @@ signal part_added(data: GunPart)
 
 const STARTING_PARTS := 8
 var rng = RandomNumberGenerator.new()
-
+var loader := GunPartsLoader.new()
 func _ready() -> void:
 	for i in STARTING_PARTS:
 		_make_new_part()
@@ -36,9 +36,9 @@ func _drop_data(at_position: Vector2, data) -> void:
 
 
 func _make_new_part() -> void:
-	var scene := GunPartSprite.new()
-	add_child(scene)
-	move_child(scene, -1)
+	var part: GunPartSprite = loader.new_gun_part()
+	add_child(part)
+	move_child(part, -1)
 
 
 func _on_timer_timeout() -> void:
