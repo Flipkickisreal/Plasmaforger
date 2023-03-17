@@ -9,7 +9,7 @@ const PRICES := [100.0, 500.0, 1_000.0, 2_000.0]
 @export var name: String
 @export var texture: Texture2D
 @export var rarity: Rarity
-
+@export var shader: ShaderMaterial
 @export var kelv: float		# temperature
 @export var ammo: float		# ammunition
 @export var cap: float		# capacitance (resistance to charge drain)
@@ -48,3 +48,4 @@ func _init(
 	rarity = randi() % Rarity.size() as Rarity
 	price_i = PRICES[rarity]
 	texture = load(GunPartsLoader.images.pick_random())
+	shader = load(GunPartsLoader.shaders.pick_rarity())

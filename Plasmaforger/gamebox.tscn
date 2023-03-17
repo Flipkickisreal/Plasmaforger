@@ -1,11 +1,11 @@
-[gd_scene load_steps=308 format=3 uid="uid://mw481yg281vo"]
+[gd_scene load_steps=308 format=3 uid="uid://dkb7621xupibm"]
 
-[ext_resource type="Shader" path="res://Shaders/Backgroundspace.gdshader" id="1_jmxlv"]
 [ext_resource type="Script" path="res://Code/gamebox.gd" id="1_u0s2c"]
+[ext_resource type="Shader" path="res://shaders/backgroundspace.gdshader" id="2_ha4hp"]
 [ext_resource type="Script" path="res://Code/Backgroundspace.gd" id="3_3b85d"]
 [ext_resource type="Texture2D" uid="uid://bpp34u8ekbml" path="res://Sprites/Planets/2505424672.png" id="3_ehlq3"]
-[ext_resource type="Shader" path="res://Shaders/Planet.gdshader" id="3_ynfp4"]
 [ext_resource type="Script" path="res://Code/HBCone.gd" id="4_k1ghh"]
+[ext_resource type="Shader" path="res://shaders/Planet.gdshader" id="5_o6bk7"]
 [ext_resource type="FontFile" uid="uid://cxywj4ongmny" path="res://Fonts/static/FiraCode-Regular.ttf" id="6_d6t6k"]
 [ext_resource type="Texture2D" uid="uid://cjn6fipp2j3wu" path="res://Sprites/Planets/3824432173 (1).png" id="6_ir5q2"]
 [ext_resource type="Script" path="res://Code/Planet.gd" id="7_1nnuf"]
@@ -15,7 +15,7 @@
 [ext_resource type="Script" path="res://Code/Launchdwarf.gd" id="12_6xw1e"]
 [ext_resource type="Texture2D" uid="uid://djhcro1srdyps" path="res://Sprites/pxArt (1).png" id="14_twndl"]
 [ext_resource type="Script" path="res://Code/HBCelf.gd" id="14_wfojb"]
-[ext_resource type="Shader" path="res://Shaders/Moon.gdshader" id="15_wg66u"]
+[ext_resource type="Shader" path="res://shaders/moon.gdshader" id="15_k2bag"]
 [ext_resource type="Texture2D" uid="uid://33pwo1b4x534" path="res://Sprites/pxArt (2).png" id="16_3xjy7"]
 [ext_resource type="Texture2D" uid="uid://dt4s0milda8s5" path="res://Sprites/Planets/2836493227.png" id="16_60kb1"]
 [ext_resource type="Texture2D" uid="uid://fmni51cctfq7" path="res://Sprites/pxArt (3).png" id="17_1rb5g"]
@@ -27,7 +27,7 @@
 [ext_resource type="Script" path="res://Code/HBCdwarf.gd" id="24_mtcu4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8s5gw"]
-shader = ExtResource("1_jmxlv")
+shader = ExtResource("2_ha4hp")
 
 [sub_resource type="Theme" id="Theme_emqu6"]
 
@@ -50,7 +50,7 @@ color_ramp = SubResource("Gradient_gsolb")
 noise = SubResource("FastNoiseLite_jku3a")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qvuqk"]
-shader = ExtResource("3_ynfp4")
+shader = ExtResource("5_o6bk7")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yl7cg"]
 atlas = ExtResource("3_ehlq3")
@@ -807,7 +807,7 @@ scale_curve = SubResource("CurveTexture_rjmmw")
 color = Color(0.435294, 0.435294, 0.435294, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j6vb1"]
-shader = ExtResource("3_ynfp4")
+shader = ExtResource("5_o6bk7")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x304t"]
 atlas = ExtResource("6_ir5q2")
@@ -1175,8 +1175,8 @@ unicode = 100
 [sub_resource type="Shortcut" id="Shortcut_8tf5x"]
 events = [SubResource("InputEventKey_rdcpa")]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_j05l6"]
-shader = ExtResource("15_wg66u")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uxxj7"]
+shader = ExtResource("15_k2bag")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lk7yx"]
 atlas = ExtResource("16_60kb1")
@@ -2172,7 +2172,7 @@ script = ExtResource("22_n5g21")
 motion_scale = Vector2(0, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginElf/ParallaxBackgroundElf/ParallaxLayer0"]
-material = SubResource("ShaderMaterial_j05l6")
+material = SubResource("ShaderMaterial_uxxj7")
 position = Vector2(962, 191)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_nj0u7")

@@ -33,7 +33,7 @@ var gun_part_classes := [
 	Magnet,
 ]
 var images := []
-
+var shaders := ["res://shaders/rarity/common.gdshader","res://shaders/rarity/rare.gdshader","res://shaders/rarity/epic.gdshader","res://shaders/rarity/legendary.gdshader"]
 
 func _ready() -> void:
 	images = get_all_images_in_dir(SPRITES_PATH)
@@ -52,3 +52,16 @@ func get_all_images_in_dir(base_path: String) -> Array:
 		file_name = dir.get_next()
 	dir.list_dir_end()
 	return results
+	
+	#func get_all_shaders_in_dir(base_path: String) -> Array:
+		#var shadedir := DirAccess.open(base_path)
+		#shadedir.list_dir_begin()
+		#var shade_results := []
+		#var shade_file_name := shadedir.get_next()
+		#while not shade_file_name == "":
+		#	if shadedir.current_is_dir():
+#				shade_results.append_array(get_all_shaders_in_dir(base_path + shade_file_name + "/"))
+#			shade_file_name = shadedir.get_next()
+#		shadedir.list_dir_end()
+#		return shade_results
+#		print(shade_results)
