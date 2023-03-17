@@ -53,5 +53,5 @@ func _init(
 	
 	rarity = randi() % Rarity.size() as Rarity
 	price_i = PRICES[rarity]
-	texture = load(GunPartsLoader.images.pick_random())
+	texture = GunPartsLoader.images.pick_random()
 	shader = SHADER[rarity]

@@ -32,11 +32,13 @@ var gun_part_classes := [
 	RailgunMagazine,
 	Magnet,
 ]
-var images := []
-var shaders := ["res://shaders/rarity/common.gdshader","res://shaders/rarity/rare.gdshader","res://shaders/rarity/epic.gdshader","res://shaders/rarity/legendary.gdshader"]
+var images: Array
 
-func _ready() -> void:
-	images = get_all_images_in_dir(SPRITES_PATH)
+
+func _init() -> void:
+	var images_paths = get_all_images_in_dir(SPRITES_PATH)
+	for image in images_paths:
+		images.append(load(image))
 
 
 func get_all_images_in_dir(base_path: String) -> Array:
