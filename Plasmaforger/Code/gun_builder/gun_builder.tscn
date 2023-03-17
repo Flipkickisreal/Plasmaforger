@@ -1,13 +1,22 @@
-[gd_scene load_steps=9 format=3 uid="uid://bwyoi285vng18"]
+[gd_scene load_steps=12 format=3 uid="uid://ojx8vsofsvap"]
 
 [ext_resource type="Theme" uid="uid://br81apg7c5q8b" path="res://resources/themes/main_theme.tres" id="1_8582y"]
 [ext_resource type="Script" path="res://Code/gun_builder/gun_builder.gd" id="1_adwiy"]
 [ext_resource type="Script" path="res://Code/gun_builder/gun_base.gd" id="1_tgp2v"]
-[ext_resource type="PackedScene" uid="uid://kgiqrsmg4jpq" path="res://Code/gun_builder/gun_part.tscn" id="2_b24e8"]
+[ext_resource type="Script" path="res://Code/gun_builder/colortimer.gd" id="3_wrkpl"]
 [ext_resource type="FontFile" uid="uid://cxywj4ongmny" path="res://Fonts/static/FiraCode-Regular.ttf" id="4_0o8ug"]
 [ext_resource type="Script" path="res://Code/gun_builder/parts.gd" id="4_sfklx"]
-[ext_resource type="Script" path="res://Code/gun_builder/Cashmenu.gd" id="6_hqjvv"]
+[ext_resource type="Script" path="res://Code/gun_builder/textureprogress.gd" id="5_1gh4k"]
 [ext_resource type="FontFile" uid="uid://c4jm4g0klh4bu" path="res://Fonts/static/FiraCode-Bold.ttf" id="6_xle8k"]
+[ext_resource type="Script" path="res://Code/gun_builder/mytimer.gd" id="7_vig0t"]
+
+[sub_resource type="Gradient" id="Gradient_o7ynb"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vcko7"]
+gradient = SubResource("Gradient_o7ynb")
+width = 96
+height = 500
+fill_to = Vector2(0, 1)
 
 [node name="GunBuilder" type="Control"]
 layout_mode = 3
@@ -18,7 +27,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_8582y")
 script = ExtResource("1_adwiy")
-GunPartScene = ExtResource("2_b24e8")
 
 [node name="HBox" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -32,11 +40,16 @@ grow_vertical = 2
 layout_mode = 2
 
 [node name="VBox" type="VBoxContainer" parent="HBox/Left"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
 
 [node name="Label" type="Label" parent="HBox/Left/VBox"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.858824, 0.968627, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_0o8ug")
 text = "E-Recto's! 
 Perveyor of Fine Parts
@@ -44,19 +57,47 @@ Fight Hard: Shop E-Recto's"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 1
+script = ExtResource("3_wrkpl")
 
-[node name="Scroll" type="ScrollContainer" parent="HBox/Left/VBox"]
+[node name="Holderoftheblocks" type="HBoxContainer" parent="HBox/Left/VBox"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Leftprogress" type="TextureProgressBar" parent="HBox/Left/VBox/Holderoftheblocks"]
+modulate = Color(0.411765, 1, 0.415686, 1)
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 240.0
+fill_mode = 3
+texture_progress = SubResource("GradientTexture2D_vcko7")
+script = ExtResource("5_1gh4k")
+
+[node name="Scroll" type="ScrollContainer" parent="HBox/Left/VBox/Holderoftheblocks"]
+layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="Parts" type="VBoxContainer" parent="HBox/Left/VBox/Scroll"]
+[node name="Parts" type="VBoxContainer" parent="HBox/Left/VBox/Holderoftheblocks/Scroll"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(256, 0)
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 4
 size_flags_vertical = 3
 script = ExtResource("4_sfklx")
+
+[node name="Rightprogress" type="TextureProgressBar" parent="HBox/Left/VBox/Holderoftheblocks"]
+modulate = Color(1, 0, 0.517647, 1)
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 240.0
+fill_mode = 2
+texture_progress = SubResource("GradientTexture2D_vcko7")
+script = ExtResource("5_1gh4k")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBox/Left/VBox"]
 layout_mode = 2
@@ -69,12 +110,12 @@ theme_override_colors/font_color = Color(0.858824, 0.968627, 1, 1)
 theme_override_fonts/font = ExtResource("6_xle8k")
 text = "  $"
 
-[node name="Cashmenu" type="Label" parent="HBox/Left/VBox/HBoxContainer"]
+[node name="CashMenu" type="Label" parent="HBox/Left/VBox/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.858824, 0.968627, 1, 1)
 theme_override_fonts/font = ExtResource("6_xle8k")
-script = ExtResource("6_hqjvv")
 
 [node name="HSeparator" type="HSeparator" parent="HBox/Left/VBox"]
 layout_mode = 2
@@ -86,6 +127,41 @@ size_flags_horizontal = 3
 stretch_mode = 3
 script = ExtResource("1_tgp2v")
 grid_line_color = Color(0.403922, 0.403922, 0.403922, 1)
+
+[node name="Right" type="PanelContainer" parent="HBox"]
+custom_minimum_size = Vector2(200, 590)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBox/Right"]
+layout_mode = 2
+
+[node name="Score" type="Label" parent="HBox/Right/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.858824, 0.968627, 1, 1)
+theme_override_fonts/font = ExtResource("6_xle8k")
+text = "Score:"
+
+[node name="OptionButton" type="OptionButton" parent="HBox/Right/VBoxContainer"]
+layout_mode = 2
+item_count = 4
+popup/item_0/text = "Firearm"
+popup/item_0/id = 0
+popup/item_1/text = "Plasma"
+popup/item_1/id = 1
+popup/item_2/text = "Railgun"
+popup/item_2/id = 2
+popup/item_3/text = "Direct"
+popup/item_3/id = 3
+
+[node name="Equippedpartsscroll" type="ScrollContainer" parent="HBox/Right/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Equippedpartsdata" type="VBoxContainer" parent="HBox/Right/VBoxContainer/Equippedpartsscroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="Buttons" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -108,7 +184,20 @@ theme_override_colors/font_color = Color(0.858824, 0.968627, 1, 1)
 theme_override_fonts/font = ExtResource("4_0o8ug")
 text = "Save / Load"
 
-[connection signal="parts_changed" from="HBox/Left/VBox/Scroll/Parts" to="HBox/Left/VBox/HBoxContainer/Cashmenu" method="_on_parts_parts_changed"]
-[connection signal="basechanged" from="HBox/GunBase" to="HBox/Left/VBox/HBoxContainer/Cashmenu" method="_on_gun_base_basechanged"]
+[node name="Timer" type="Timer" parent="."]
+wait_time = 15.0
+script = ExtResource("7_vig0t")
+
+[connection signal="dwarf" from="." to="HBox/Left/VBox/Label" method="_on_gun_builder_dwarf"]
+[connection signal="elf" from="." to="HBox/Left/VBox/Label" method="_on_gun_builder_elf"]
+[connection signal="gamestarted" from="." to="HBox/Left/VBox/Label" method="_on_gun_builder_gamestarted"]
+[connection signal="gamestarted" from="." to="Timer" method="_on_gun_builder_gamestarted"]
+[connection signal="part_added" from="HBox/Left/VBox/Holderoftheblocks/Scroll/Parts" to="." method="_on_parts_part_added"]
+[connection signal="part_added" from="HBox/GunBase" to="." method="_on_gun_base_part_added"]
 [connection signal="pressed" from="Buttons/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Buttons/SaveLoad" to="." method="_on_save_load_pressed"]
+[connection signal="timeout" from="Timer" to="HBox/Left/VBox/Holderoftheblocks/Scroll/Parts" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="HBox/Left/VBox/Holderoftheblocks/Leftprogress" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="HBox/Left/VBox/Holderoftheblocks/Rightprogress" method="_on_timer_timeout"]
+[connection signal="timerstarted" from="Timer" to="HBox/Left/VBox/Holderoftheblocks/Leftprogress" method="_on_timer_timerstarted"]
+[connection signal="timerstarted" from="Timer" to="HBox/Left/VBox/Holderoftheblocks/Rightprogress" method="_on_timer_timerstarted"]
