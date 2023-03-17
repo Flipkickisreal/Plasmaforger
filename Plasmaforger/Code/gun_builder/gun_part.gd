@@ -8,6 +8,8 @@ var data: GunPart
 func _ready() -> void:
 	data = GunPartsLoader.gun_part_classes.pick_random().new()
 	texture = data.texture
+	TextureRect.EXPAND_FIT_HEIGHT
+	TextureRect.STRETCH_KEEP_CENTERED
 	tooltip_text = "%s\nPrice: %s\nRarity: %s" % [data.name, data.price_i, data.Rarity.keys()[data.rarity]]
 
 

@@ -1,5 +1,6 @@
 extends Control
 
+signal gamestarted
 
 @export var money := 3_000.0
 
@@ -24,3 +25,7 @@ func _on_parts_part_added(data: GunPart) -> void:
 func _on_gun_base_part_added(data: GunPart) -> void:
 	money -= data.price_i
 	%CashMenu.text = str(money)
+
+
+func _on_hb_cone_anythingpressed() -> void:
+	emit_signal("gamestarted")

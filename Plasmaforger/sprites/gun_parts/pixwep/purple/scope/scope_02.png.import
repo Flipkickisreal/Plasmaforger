@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bdws6au8cx7pe"
-path="res://.godot/imported/scope_02.png-9b6ddd87c2424a84e39ef353b06c05a6.ctex"
+path="res://.godot/imported/scope_02.png-0e1ca7c121e798e574f9c15b6241cd91.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/gun_parts/pixwep/purple/scope/scope_02.png"
-dest_files=["res://.godot/imported/scope_02.png-9b6ddd87c2424a84e39ef353b06c05a6.ctex"]
+source_file="res://Sprites/gun_parts/pixwep/purple/scope/scope_02.png"
+dest_files=["res://.godot/imported/scope_02.png-0e1ca7c121e798e574f9c15b6241cd91.ctex"]
 
 [params]
 

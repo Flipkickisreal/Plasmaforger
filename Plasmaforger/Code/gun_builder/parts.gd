@@ -3,10 +3,8 @@ extends VBoxContainer
 
 signal part_added(data: GunPart)
 
-const STARTING_PARTS := 5
-
-@export var _GunPartSpriteScene: PackedScene
-
+const STARTING_PARTS := 8
+var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
 	for i in STARTING_PARTS:
@@ -38,11 +36,14 @@ func _drop_data(at_position: Vector2, data) -> void:
 
 
 func _make_new_part() -> void:
-	var scene := _GunPartSpriteScene.instantiate()
+	var scene := GunPartSprite.new()
 	add_child(scene)
-	move_child(scene, 0)
+	move_child(scene, -1)
 
 
 func _on_timer_timeout() -> void:
-	get_child(-1).queue_free()
+	var newPartChance = rng.randf_range(-10.0, 10.0)
+	get_child(0).queue_free()
 	_make_new_part()
+	if newPartChance >=7:
+		_make_new_part()

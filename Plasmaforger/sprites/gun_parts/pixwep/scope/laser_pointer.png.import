@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://clsmtsd1oc0n0"
-path="res://.godot/imported/laser_pointer.png-3c058d146f6fe0a8a9573af8a1292b7d.ctex"
+path="res://.godot/imported/laser_pointer.png-b90f9281de064ee93f7b63932df72f06.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/gun_parts/pixwep/scope/laser_pointer.png"
-dest_files=["res://.godot/imported/laser_pointer.png-3c058d146f6fe0a8a9573af8a1292b7d.ctex"]
+source_file="res://Sprites/gun_parts/pixwep/scope/laser_pointer.png"
+dest_files=["res://.godot/imported/laser_pointer.png-b90f9281de064ee93f7b63932df72f06.ctex"]
 
 [params]
 

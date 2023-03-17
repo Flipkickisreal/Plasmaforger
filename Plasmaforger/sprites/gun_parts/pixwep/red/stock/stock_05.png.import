@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://62xrbmy7vjjy"
-path="res://.godot/imported/stock_05.png-08b1dda3bc0dfa6c35d66e5bf0ae5feb.ctex"
+path="res://.godot/imported/stock_05.png-56295914a32571296af12e22c1c4fb72.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/gun_parts/pixwep/red/stock/stock_05.png"
-dest_files=["res://.godot/imported/stock_05.png-08b1dda3bc0dfa6c35d66e5bf0ae5feb.ctex"]
+source_file="res://Sprites/gun_parts/pixwep/red/stock/stock_05.png"
+dest_files=["res://.godot/imported/stock_05.png-56295914a32571296af12e22c1c4fb72.ctex"]
 
 [params]
 

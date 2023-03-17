@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c400eq1ajxb51"
-path="res://.godot/imported/test_part_2.png-5ba8c87d88eaed2fffb250c1f1e557a2.ctex"
+path="res://.godot/imported/test_part_2.png-44df632e213abdcb682bc8de92cbc078.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/gun_parts/test/test_part_2.png"
-dest_files=["res://.godot/imported/test_part_2.png-5ba8c87d88eaed2fffb250c1f1e557a2.ctex"]
+source_file="res://Sprites/gun_parts/test/test_part_2.png"
+dest_files=["res://.godot/imported/test_part_2.png-44df632e213abdcb682bc8de92cbc078.ctex"]
 
 [params]
 

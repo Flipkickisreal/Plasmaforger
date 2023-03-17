@@ -3,10 +3,10 @@
 [ext_resource type="Theme" uid="uid://br81apg7c5q8b" path="res://resources/themes/main_theme.tres" id="1_8582y"]
 [ext_resource type="Script" path="res://Code/gun_builder/gun_builder.gd" id="1_adwiy"]
 [ext_resource type="Script" path="res://Code/gun_builder/gun_base.gd" id="1_tgp2v"]
-[ext_resource type="PackedScene" uid="uid://kgiqrsmg4jpq" path="res://Code/gun_builder/gun_part.tscn" id="2_b24e8"]
 [ext_resource type="FontFile" uid="uid://cxywj4ongmny" path="res://Fonts/static/FiraCode-Regular.ttf" id="4_0o8ug"]
 [ext_resource type="Script" path="res://Code/gun_builder/parts.gd" id="4_sfklx"]
 [ext_resource type="FontFile" uid="uid://c4jm4g0klh4bu" path="res://Fonts/static/FiraCode-Bold.ttf" id="6_xle8k"]
+[ext_resource type="Script" path="res://Code/gun_builder/mytimer.gd" id="7_vig0t"]
 
 [node name="GunBuilder" type="Control"]
 layout_mode = 3
@@ -17,7 +17,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_8582y")
 script = ExtResource("1_adwiy")
-_GunPartSpriteScene = ExtResource("2_b24e8")
 
 [node name="HBox" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -31,7 +30,10 @@ grow_vertical = 2
 layout_mode = 2
 
 [node name="VBox" type="VBoxContainer" parent="HBox/Left"]
+custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
 
 [node name="Label" type="Label" parent="HBox/Left/VBox"]
 layout_mode = 2
@@ -44,16 +46,27 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 1
 
-[node name="Scroll" type="ScrollContainer" parent="HBox/Left/VBox"]
+[node name="Holderoftheblocks" type="HBoxContainer" parent="HBox/Left/VBox"]
+custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="JankotheVsep" type="VSeparator" parent="HBox/Left/VBox/Holderoftheblocks"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 96
+
+[node name="Scroll" type="ScrollContainer" parent="HBox/Left/VBox/Holderoftheblocks"]
+layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="Parts" type="VBoxContainer" parent="HBox/Left/VBox/Scroll"]
+[node name="Parts" type="VBoxContainer" parent="HBox/Left/VBox/Holderoftheblocks/Scroll"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(256, 0)
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 4
 size_flags_vertical = 3
 script = ExtResource("4_sfklx")
 
@@ -87,6 +100,7 @@ script = ExtResource("1_tgp2v")
 grid_line_color = Color(0.403922, 0.403922, 0.403922, 1)
 
 [node name="Right" type="PanelContainer" parent="HBox"]
+custom_minimum_size = Vector2(200, 590)
 layout_mode = 2
 size_flags_vertical = 4
 
@@ -141,7 +155,13 @@ theme_override_colors/font_color = Color(0.858824, 0.968627, 1, 1)
 theme_override_fonts/font = ExtResource("4_0o8ug")
 text = "Save / Load"
 
-[connection signal="part_added" from="HBox/Left/VBox/Scroll/Parts" to="." method="_on_parts_part_added"]
+[node name="Timer" type="Timer" parent="."]
+wait_time = 15.0
+script = ExtResource("7_vig0t")
+
+[connection signal="gamestarted" from="." to="Timer" method="_on_gun_builder_gamestarted"]
+[connection signal="part_added" from="HBox/Left/VBox/Holderoftheblocks/Scroll/Parts" to="." method="_on_parts_part_added"]
 [connection signal="part_added" from="HBox/GunBase" to="." method="_on_gun_base_part_added"]
 [connection signal="pressed" from="Buttons/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Buttons/SaveLoad" to="." method="_on_save_load_pressed"]
+[connection signal="timeout" from="Timer" to="HBox/Left/VBox/Holderoftheblocks/Scroll/Parts" method="_on_timer_timeout"]

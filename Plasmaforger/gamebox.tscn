@@ -1237,6 +1237,7 @@ texture = SubResource("NoiseTexture2D_16n3i")
 script = ExtResource("3_3b85d")
 
 [node name="HBCone" type="HBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1587,7 +1588,6 @@ lifetime = 9.34
 layer = 2
 
 [node name="PCdwarf" type="PanelContainer" parent="MarginDwarf/CanvasLayer"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1605,6 +1605,8 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[connection signal="anythingpressed" from="HBCone" to="MarginElf/CanvasLayer/PCelf/GunBuilder" method="_on_hb_cone_anythingpressed"]
+[connection signal="anythingpressed" from="HBCone" to="MarginDwarf/CanvasLayer/PCdwarf" method="_on_hb_cone_anythingpressed"]
 [connection signal="dwarfpressed" from="HBCone" to="MarginDwarf/ParallaxBackgroundDwarf" method="_on_hb_cone_dwarfpressed"]
 [connection signal="elfpressed" from="HBCone" to="MarginElf/ParallaxBackgroundElf" method="_on_hb_cone_elfpressed"]
 [connection signal="pressed" from="HBCone/VBCone/CenterContainer/Planetbuttonone" to="HBCone" method="_on_planetbuttonone_pressed"]

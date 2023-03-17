@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://7s4rpkqyl7rp"
-path="res://.godot/imported/body_laser_01.png-e362e4975117ea80e3f28ffe1d8a72d4.ctex"
+path="res://.godot/imported/body_laser_01.png-6d3c762ab8c1108b79e8426940fe44ee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/gun_parts/pixwep/red/body/body_laser_01.png"
-dest_files=["res://.godot/imported/body_laser_01.png-e362e4975117ea80e3f28ffe1d8a72d4.ctex"]
+source_file="res://Sprites/gun_parts/pixwep/red/body/body_laser_01.png"
+dest_files=["res://.godot/imported/body_laser_01.png-6d3c762ab8c1108b79e8426940fe44ee.ctex"]
 
 [params]
 

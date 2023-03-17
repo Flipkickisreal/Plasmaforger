@@ -13,3 +13,5 @@ func _process(delta: float) -> void:
 
 func _on_parallax_background_dwarf_visibility_changed() -> void:
 	show()
+
+

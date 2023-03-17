@@ -1,9 +1,11 @@
 extends Node
 
 
-const SPRITES_PATH := "res://sprites/gun_parts/"
+const SPRITES_PATH := "res://Sprites/gun_parts/finished_parts/"
 
 var gun_part_classes := [
+	# Vision
+	#placeholder
 	# Generations
 	Capacitor,
 	Dynamo,
