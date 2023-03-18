@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dn55ax1ngtley"
-path="res://.godot/imported/dwarf_plasma_emitter_mk2.png-b9cfb4d2523c1b6467c46d072892bbd0.ctex"
+path="res://.godot/imported/dwarf_plasma_emitter_mk2.png-90038a47bb768043762d960d1fb5828b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/gun_parts/finished_parts/dwarf_plasma_emitter_mk2.png"
-dest_files=["res://.godot/imported/dwarf_plasma_emitter_mk2.png-b9cfb4d2523c1b6467c46d072892bbd0.ctex"]
+source_file="res://sprites/gun_parts/finished_parts/dwarf_plasma_emitter_mk2.png"
+dest_files=["res://.godot/imported/dwarf_plasma_emitter_mk2.png-90038a47bb768043762d960d1fb5828b.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dvl3pt3cmeij4"
-path="res://.godot/imported/all_receiver_mk1.png-e175482be43e8617008a56eceed1dc6c.ctex"
+path="res://.godot/imported/all_receiver_mk1.png-edb608f6c33554f9064e11cc7c4d8a11.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/gun_parts/finished_parts/all_receiver_mk1.png"
-dest_files=["res://.godot/imported/all_receiver_mk1.png-e175482be43e8617008a56eceed1dc6c.ctex"]
+source_file="res://sprites/gun_parts/finished_parts/all_receiver_mk1.png"
+dest_files=["res://.godot/imported/all_receiver_mk1.png-edb608f6c33554f9064e11cc7c4d8a11.ctex"]
 
 [params]
 

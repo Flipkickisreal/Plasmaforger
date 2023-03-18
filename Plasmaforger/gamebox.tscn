@@ -3,27 +3,27 @@
 [ext_resource type="Script" path="res://Code/gamebox.gd" id="1_u0s2c"]
 [ext_resource type="Shader" path="res://shaders/backgroundspace.gdshader" id="2_ha4hp"]
 [ext_resource type="Script" path="res://Code/Backgroundspace.gd" id="3_3b85d"]
-[ext_resource type="Texture2D" uid="uid://bpp34u8ekbml" path="res://Sprites/Planets/2505424672.png" id="3_ehlq3"]
+[ext_resource type="Texture2D" uid="uid://bpp34u8ekbml" path="res://sprites/Planets/2505424672.png" id="3_ehlq3"]
 [ext_resource type="Script" path="res://Code/HBCone.gd" id="4_k1ghh"]
 [ext_resource type="Shader" path="res://shaders/Planet.gdshader" id="5_o6bk7"]
 [ext_resource type="FontFile" uid="uid://cxywj4ongmny" path="res://Fonts/static/FiraCode-Regular.ttf" id="6_d6t6k"]
-[ext_resource type="Texture2D" uid="uid://cjn6fipp2j3wu" path="res://Sprites/Planets/3824432173 (1).png" id="6_ir5q2"]
+[ext_resource type="Texture2D" uid="uid://cjn6fipp2j3wu" path="res://sprites/Planets/3824432173 (1).png" id="6_ir5q2"]
 [ext_resource type="Script" path="res://Code/Planet.gd" id="7_1nnuf"]
 [ext_resource type="FontFile" uid="uid://c4jm4g0klh4bu" path="res://Fonts/static/FiraCode-Bold.ttf" id="7_rqmy1"]
 [ext_resource type="FontFile" uid="uid://7qyqxr5j5q5" path="res://Fonts/static/FiraCode-Light.ttf" id="8_ctjb0"]
 [ext_resource type="Script" path="res://Code/Launchsmoke.gd" id="11_30vma"]
 [ext_resource type="Script" path="res://Code/Launchdwarf.gd" id="12_6xw1e"]
 [ext_resource type="Script" path="res://marginelf.gd" id="14_ghk3k"]
-[ext_resource type="Texture2D" uid="uid://djhcro1srdyps" path="res://Sprites/pxArt (1).png" id="14_twndl"]
+[ext_resource type="Texture2D" uid="uid://djhcro1srdyps" path="res://sprites/pxArt (1).png" id="14_twndl"]
 [ext_resource type="Script" path="res://Code/HBCelf.gd" id="14_wfojb"]
 [ext_resource type="Shader" path="res://shaders/moon.gdshader" id="15_k2bag"]
-[ext_resource type="Texture2D" uid="uid://33pwo1b4x534" path="res://Sprites/pxArt (2).png" id="16_3xjy7"]
-[ext_resource type="Texture2D" uid="uid://dt4s0milda8s5" path="res://Sprites/Planets/2836493227.png" id="16_60kb1"]
-[ext_resource type="Texture2D" uid="uid://fmni51cctfq7" path="res://Sprites/pxArt (3).png" id="17_1rb5g"]
+[ext_resource type="Texture2D" uid="uid://33pwo1b4x534" path="res://sprites/pxArt (2).png" id="16_3xjy7"]
+[ext_resource type="Texture2D" uid="uid://dt4s0milda8s5" path="res://sprites/Planets/2836493227.png" id="16_60kb1"]
+[ext_resource type="Texture2D" uid="uid://fmni51cctfq7" path="res://sprites/pxArt (3).png" id="17_1rb5g"]
 [ext_resource type="PackedScene" uid="uid://ojx8vsofsvap" path="res://Code/gun_builder/gun_builder.tscn" id="19_2rbm7"]
-[ext_resource type="Texture2D" uid="uid://3rl6pm3jj182" path="res://Sprites/pxArt (5).png" id="20_3ec2s"]
-[ext_resource type="Texture2D" uid="uid://nou2adstxbkq" path="res://Sprites/pxArt (6).png" id="21_1ss75"]
-[ext_resource type="Texture2D" uid="uid://cfwg787508e0t" path="res://Sprites/pxArt (7).png" id="22_m7gpn"]
+[ext_resource type="Texture2D" uid="uid://3rl6pm3jj182" path="res://sprites/pxArt (5).png" id="20_3ec2s"]
+[ext_resource type="Texture2D" uid="uid://nou2adstxbkq" path="res://sprites/pxArt (6).png" id="21_1ss75"]
+[ext_resource type="Texture2D" uid="uid://cfwg787508e0t" path="res://sprites/pxArt (7).png" id="22_m7gpn"]
 [ext_resource type="Script" path="res://Code/parallaxbg.gd" id="22_n5g21"]
 [ext_resource type="Script" path="res://margindwarf.gd" id="23_6uo1i"]
 [ext_resource type="Script" path="res://Code/HBCdwarf.gd" id="24_mtcu4"]
@@ -1989,7 +1989,6 @@ texture = SubResource("NoiseTexture2D_16n3i")
 script = ExtResource("3_3b85d")
 
 [node name="HBCone" type="HBoxContainer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2129,7 +2128,6 @@ offset = Vector2(-5, 15)
 
 [node name="Planetbuttontwo" type="Button" parent="HBCone/VBCthree/CenterContainer"]
 self_modulate = Color(1, 1, 1, 0.00392157)
-top_level = true
 visibility_layer = 513
 custom_minimum_size = Vector2(345, 345)
 layout_mode = 2
@@ -2159,6 +2157,7 @@ layout_mode = 2
 offset_right = 1152.0
 offset_bottom = 648.0
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
@@ -2274,6 +2273,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5

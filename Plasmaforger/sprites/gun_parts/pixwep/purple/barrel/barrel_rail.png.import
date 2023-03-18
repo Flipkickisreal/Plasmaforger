@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://uium71mykj2e"
-path="res://.godot/imported/barrel_rail.png-4a061bdfb1c58ce52cbda8bef1c0d3f4.ctex"
+path="res://.godot/imported/barrel_rail.png-e648f1d2a46c0208dbb51af594db4498.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/gun_parts/pixwep/purple/barrel/barrel_rail.png"
-dest_files=["res://.godot/imported/barrel_rail.png-4a061bdfb1c58ce52cbda8bef1c0d3f4.ctex"]
+source_file="res://sprites/gun_parts/pixwep/purple/barrel/barrel_rail.png"
+dest_files=["res://.godot/imported/barrel_rail.png-e648f1d2a46c0208dbb51af594db4498.ctex"]
 
 [params]
 

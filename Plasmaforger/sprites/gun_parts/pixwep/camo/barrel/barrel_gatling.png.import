@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://lii21e36bgjx"
-path="res://.godot/imported/barrel_gatling.png-8265709baa16fd5fea0c524b5f219eda.ctex"
+path="res://.godot/imported/barrel_gatling.png-e5cf1b5efa2cbf1deb615876d9a06842.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/gun_parts/pixwep/camo/barrel/barrel_gatling.png"
-dest_files=["res://.godot/imported/barrel_gatling.png-8265709baa16fd5fea0c524b5f219eda.ctex"]
+source_file="res://sprites/gun_parts/pixwep/camo/barrel/barrel_gatling.png"
+dest_files=["res://.godot/imported/barrel_gatling.png-e5cf1b5efa2cbf1deb615876d9a06842.ctex"]
 
 [params]
 
