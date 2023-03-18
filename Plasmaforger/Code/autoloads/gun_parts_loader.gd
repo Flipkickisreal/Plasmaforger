@@ -1,3 +1,4 @@
+class_name GunPartsLoader
 extends Node
 
 
@@ -32,11 +33,13 @@ var gun_part_classes := [
 	RailgunMagazine,
 	Magnet,
 ]
-var images := []
-var shaders := ["res://shaders/rarity/common.gdshader","res://shaders/rarity/rare.gdshader","res://shaders/rarity/epic.gdshader","res://shaders/rarity/legendary.gdshader"]
+@export var images: Array
 
-func _ready() -> void:
-	images = get_all_images_in_dir(SPRITES_PATH)
+
+func _init() -> void:
+	var images_paths = get_all_images_in_dir(SPRITES_PATH)
+	for image in images_paths:
+		images.append(load(image))
 
 
 func get_all_images_in_dir(base_path: String) -> Array:
@@ -52,7 +55,16 @@ func get_all_images_in_dir(base_path: String) -> Array:
 		file_name = dir.get_next()
 	dir.list_dir_end()
 	return results
-	
+
+
+func new_gun_part() -> GunPartSprite:
+	var part_class: GDScript = gun_part_classes.pick_random()
+	var image: Resource = images.pick_random()
+	var part = part_class.new(image)
+	var scene = GunPartSprite.new(part)
+	return scene
+
+
 	#func get_all_shaders_in_dir(base_path: String) -> Array:
 		#var shadedir := DirAccess.open(base_path)
 		#shadedir.list_dir_begin()
