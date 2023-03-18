@@ -19,12 +19,12 @@ func _on_save_load_pressed() -> void:
 
 
 func _on_parts_part_added(data: GunPart) -> void:
-	money += data.price_i
+	money += data.mod_price
 	%CashMenu.text = str(money)
 
 
 func _on_gun_base_part_added(data: GunPart) -> void:
-	money -= data.price_i
+	money -= data.mod_price
 	%CashMenu.text = str(money)
 
 

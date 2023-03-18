@@ -22,7 +22,7 @@ func _can_drop_data(_at_position: Vector2, data) -> bool:
 			and data.offset is Vector2
 			and is_instance_valid(data.part)
 			and data.part is GunPartSprite
-			and (owner.money >= data.part.data.price_i or data.part.get_parent() == self)
+			and (owner.money >= data.part.data.mod_price or data.part.get_parent() == self)
 			and not _is_part_overlapping(data)
 	)
 

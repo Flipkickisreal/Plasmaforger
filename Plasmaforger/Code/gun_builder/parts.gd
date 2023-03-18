@@ -43,7 +43,8 @@ func _make_new_part() -> void:
 
 func _on_timer_timeout() -> void:
 	var newPartChance = rng.randf_range(-10.0, 10.0)
-	get_child(0).queue_free()
+	if get_child_count() > 2:
+		get_child(0).queue_free()
 	_make_new_part()
 	if newPartChance >= 7:
 		_make_new_part()

@@ -70,7 +70,7 @@ modulate = Color(0.411765, 1, 0.415686, 1)
 custom_minimum_size = Vector2(96, 0)
 layout_mode = 2
 size_flags_vertical = 4
-max_value = 240.0
+max_value = 120.0
 fill_mode = 3
 texture_progress = SubResource("GradientTexture2D_vcko7")
 script = ExtResource("5_1gh4k")
@@ -94,7 +94,7 @@ modulate = Color(1, 0, 0.517647, 1)
 custom_minimum_size = Vector2(96, 0)
 layout_mode = 2
 size_flags_vertical = 4
-max_value = 240.0
+max_value = 120.0
 fill_mode = 2
 texture_progress = SubResource("GradientTexture2D_vcko7")
 script = ExtResource("5_1gh4k")
@@ -196,8 +196,8 @@ script = ExtResource("7_vig0t")
 [connection signal="part_added" from="HBox/GunBase" to="." method="_on_gun_base_part_added"]
 [connection signal="pressed" from="Buttons/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Buttons/SaveLoad" to="." method="_on_save_load_pressed"]
-[connection signal="timeout" from="Timer" to="HBox/Left/VBox/Holderoftheblocks/Scroll/Parts" method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer" to="HBox/Left/VBox/Holderoftheblocks/Leftprogress" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="HBox/Left/VBox/Holderoftheblocks/Scroll/Parts" method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer" to="HBox/Left/VBox/Holderoftheblocks/Rightprogress" method="_on_timer_timeout"]
 [connection signal="timerstarted" from="Timer" to="HBox/Left/VBox/Holderoftheblocks/Leftprogress" method="_on_timer_timerstarted"]
 [connection signal="timerstarted" from="Timer" to="HBox/Left/VBox/Holderoftheblocks/Rightprogress" method="_on_timer_timerstarted"]

@@ -16,7 +16,7 @@ func _init(p_data: GunPart) -> void:
 	size = IMAGESIZE
 	expand_mode = TextureRect.EXPAND_FIT_HEIGHT_PROPORTIONAL
 	stretch_mode = TextureRect.STRETCH_SCALE
-	tooltip_text = "%s\nPrice: %s\nRarity: %s" % [data.name, data.price_i, data.Rarity.keys()[data.rarity]]
+	tooltip_text = "%s\nPrice: %s\nRarity: %s" % [data.name, data.mod_price, data.Rarity.keys()[data.rarity]]
 
 
 func _ready() -> void:
@@ -46,7 +46,7 @@ func _get_drag_data(at_position: Vector2):
 func _tween_shader() -> void:
 	tween = create_tween()
 	tween.set_loops()
-	tween.tween_property(self, "tween_value", 1.0, 2.0).from(0.0)
+	tween.tween_property(self, "tween_value", 0.0, 2.0).from(1.0)
 #	tween.interpolate_property(sprite.material, "shader_param/shine_progress", 
 #	1.0, 0.0, SHINE_TIME, Tween.TRANS_SINE, Tween.EASE_IN)
 #	tween.interpolate_property(sprite.material, "shader_param/shine_size", 

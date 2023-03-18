@@ -2,7 +2,7 @@ extends TextureProgressBar
 
 var timeout = false
 var valueSetter = 1
-const JFCHRIST = 260
+const JFCHRIST = 120
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -16,7 +16,7 @@ func _process(_delta: float) -> void:
 
 func _on_timer_timerstarted() -> void:
 	while timeout == false:
-		await get_tree().create_timer(0.0625).timeout
+		await get_tree().create_timer(0.125).timeout
 		value = valueSetter
 		valueSetter += 1
 		print(valueSetter)
@@ -26,6 +26,6 @@ func _on_timer_timeout() -> void:
 	timeout = true
 	valueSetter = 1
 	for I in JFCHRIST:
-		await get_tree().create_timer(0.0625).timeout
+		await get_tree().create_timer(0.125).timeout
 		value = valueSetter
 		valueSetter += 1

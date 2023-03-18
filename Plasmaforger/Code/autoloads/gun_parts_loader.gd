@@ -33,7 +33,7 @@ var gun_part_classes := [
 	RailgunMagazine,
 	Magnet,
 ]
-var images: Array
+@export var images: Array
 
 
 func _init() -> void:
@@ -63,6 +63,7 @@ func new_gun_part() -> GunPartSprite:
 	var part = part_class.new(image)
 	var scene = GunPartSprite.new(part)
 	return scene
+
 
 	#func get_all_shaders_in_dir(base_path: String) -> Array:
 		#var shadedir := DirAccess.open(base_path)
