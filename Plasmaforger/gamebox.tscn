@@ -1,4 +1,4 @@
-[gd_scene load_steps=310 format=3]
+[gd_scene load_steps=310 format=3 uid="uid://cja5x70f8rskt"]
 
 [ext_resource type="Script" path="res://Code/gamebox.gd" id="1_u0s2c"]
 [ext_resource type="Shader" path="res://shaders/backgroundspace.gdshader" id="2_ha4hp"]
@@ -1989,7 +1989,6 @@ texture = SubResource("NoiseTexture2D_16n3i")
 script = ExtResource("3_3b85d")
 
 [node name="HBCone" type="HBoxContainer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2129,7 +2128,6 @@ offset = Vector2(-5, 15)
 
 [node name="Planetbuttontwo" type="Button" parent="HBCone/VBCthree/CenterContainer"]
 self_modulate = Color(1, 1, 1, 0.00392157)
-top_level = true
 visibility_layer = 513
 custom_minimum_size = Vector2(345, 345)
 layout_mode = 2
@@ -2159,6 +2157,7 @@ layout_mode = 2
 offset_right = 1152.0
 offset_bottom = 648.0
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
@@ -2274,6 +2273,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
