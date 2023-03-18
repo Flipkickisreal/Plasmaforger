@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cq70l4rxtahmt"
-path="res://.godot/imported/turret_02_mk3.png-7240db49f6ff9d53fd69ae4e218b088d.ctex"
+path="res://.godot/imported/turret_02_mk3.png-11a60a3f59891f592177ef5124dee84b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/gun_parts/space_breaker/Medium/Laser/turret_02_mk3.png"
-dest_files=["res://.godot/imported/turret_02_mk3.png-7240db49f6ff9d53fd69ae4e218b088d.ctex"]
+source_file="res://Sprites/gun_parts/space_breaker/Medium/Laser/turret_02_mk3.png"
+dest_files=["res://.godot/imported/turret_02_mk3.png-11a60a3f59891f592177ef5124dee84b.ctex"]
 
 [params]
 

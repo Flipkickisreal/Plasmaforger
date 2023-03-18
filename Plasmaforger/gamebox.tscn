@@ -1,4 +1,4 @@
-[gd_scene load_steps=310 format=3 uid="uid://dkb7621xupibm"]
+[gd_scene load_steps=310 format=3]
 
 [ext_resource type="Script" path="res://Code/gamebox.gd" id="1_u0s2c"]
 [ext_resource type="Shader" path="res://shaders/backgroundspace.gdshader" id="2_ha4hp"]
