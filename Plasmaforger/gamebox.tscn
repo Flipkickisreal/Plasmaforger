@@ -1,7 +1,7 @@
 [gd_scene load_steps=310 format=3 uid="uid://cja5x70f8rskt"]
 
 [ext_resource type="Script" path="res://Code/gamebox.gd" id="1_u0s2c"]
-[ext_resource type="Shader" path="res://shaders/backgroundspace.gdshader" id="2_ha4hp"]
+[ext_resource type="Shader" path="res://Backgroundspace.gdshader" id="2_r6jnd"]
 [ext_resource type="Script" path="res://Code/Backgroundspace.gd" id="3_3b85d"]
 [ext_resource type="Texture2D" uid="uid://bpp34u8ekbml" path="res://Sprites/Planets/2505424672.png" id="3_ehlq3"]
 [ext_resource type="Script" path="res://Code/HBCone.gd" id="4_k1ghh"]
@@ -16,8 +16,8 @@
 [ext_resource type="Script" path="res://marginelf.gd" id="14_ghk3k"]
 [ext_resource type="Texture2D" uid="uid://djhcro1srdyps" path="res://Sprites/pxArt (1).png" id="14_twndl"]
 [ext_resource type="Script" path="res://Code/HBCelf.gd" id="14_wfojb"]
-[ext_resource type="Shader" path="res://shaders/moon.gdshader" id="15_k2bag"]
 [ext_resource type="Texture2D" uid="uid://33pwo1b4x534" path="res://Sprites/pxArt (2).png" id="16_3xjy7"]
+[ext_resource type="Shader" path="res://Shaders/Moon.gdshader" id="16_26md5"]
 [ext_resource type="Texture2D" uid="uid://dt4s0milda8s5" path="res://Sprites/Planets/2836493227.png" id="16_60kb1"]
 [ext_resource type="Texture2D" uid="uid://fmni51cctfq7" path="res://Sprites/pxArt (3).png" id="17_1rb5g"]
 [ext_resource type="PackedScene" uid="uid://ojx8vsofsvap" path="res://Code/gun_builder/gun_builder.tscn" id="19_2rbm7"]
@@ -29,7 +29,7 @@
 [ext_resource type="Script" path="res://Code/HBCdwarf.gd" id="24_mtcu4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8s5gw"]
-shader = ExtResource("2_ha4hp")
+shader = ExtResource("2_r6jnd")
 
 [sub_resource type="Theme" id="Theme_emqu6"]
 
@@ -1178,7 +1178,7 @@ unicode = 100
 events = [SubResource("InputEventKey_rdcpa")]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uxxj7"]
-shader = ExtResource("15_k2bag")
+shader = ExtResource("16_26md5")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lk7yx"]
 atlas = ExtResource("16_60kb1")
@@ -2401,9 +2401,7 @@ offset_bottom = 40.0
 [connection signal="elfpressed" from="HBCone" to="MarginDwarf" method="_on_hb_cone_elfpressed"]
 [connection signal="pressed" from="HBCone/VBCone/CenterContainer/Planetbuttonone" to="HBCone" method="_on_planetbuttonone_pressed"]
 [connection signal="pressed" from="HBCone/VBCone/CenterContainer/Planetbuttonone" to="HBCone/VBCtwo/PanelContainer/Launchelf" method="_on_planetbuttonone_pressed"]
-[connection signal="pressed" from="HBCone/VBCone/CenterContainer/Planetbuttonone" to="MarginElf/ParallaxBackgroundElf" method="_on_planetbuttonone_pressed"]
 [connection signal="pressed" from="HBCone/VBCthree/CenterContainer/Planetbuttontwo" to="HBCone" method="_on_planetbuttontwo_pressed"]
 [connection signal="pressed" from="HBCone/VBCthree/CenterContainer/Planetbuttontwo" to="HBCone/VBCtwo/PanelContainer/Launchdwarf" method="_on_planetbuttontwo_pressed"]
-[connection signal="pressed" from="HBCone/VBCthree/CenterContainer/Planetbuttontwo" to="MarginDwarf/ParallaxBackgroundDwarf" method="_on_planetbuttontwo_pressed"]
 [connection signal="visibility_changed" from="MarginElf/ParallaxBackgroundElf" to="MarginElf/CanvasLayer/PCelf" method="_on_parallax_background_elf_visibility_changed"]
 [connection signal="visibility_changed" from="MarginDwarf/ParallaxBackgroundDwarf" to="MarginDwarf/CanvasLayer/PCdwarf" method="_on_parallax_background_dwarf_visibility_changed"]

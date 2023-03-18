@@ -190,7 +190,6 @@ script = ExtResource("7_vig0t")
 
 [connection signal="dwarf" from="." to="HBox/Left/VBox/Label" method="_on_gun_builder_dwarf"]
 [connection signal="elf" from="." to="HBox/Left/VBox/Label" method="_on_gun_builder_elf"]
-[connection signal="gamestarted" from="." to="HBox/Left/VBox/Label" method="_on_gun_builder_gamestarted"]
 [connection signal="gamestarted" from="." to="Timer" method="_on_gun_builder_gamestarted"]
 [connection signal="part_added" from="HBox/Left/VBox/Holderoftheblocks/Scroll/Parts" to="." method="_on_parts_part_added"]
 [connection signal="part_added" from="HBox/GunBase" to="." method="_on_gun_base_part_added"]
